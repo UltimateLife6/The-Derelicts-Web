@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="WILLOW">
+  <rect width="800" height="1000" fill="#10131a"/>
+  <rect x="40" y="40" width="720" height="920" fill="#1a212b" stroke="#7dffb3" stroke-width="8"/>
+  <polygon points="80,180 320,90 560,210 720,120 720,420 80,500" fill="#7dffb3" opacity="0.18"/>
+  <circle cx="250" cy="430" r="120" fill="#7dffb3" opacity="0.28"/>
+  <rect x="420" y="360" width="220" height="280" fill="#07080c" stroke="#7dffb3" stroke-dasharray="10 8"/>
+  <text x="80" y="120" fill="#7dffb3" font-family="monospace" font-size="28" letter-spacing="8">BEASTMASTER</text>
+  <text x="80" y="880" fill="#d4c4a8" font-family="Impact, sans-serif" font-size="72">WILLOW</text>
+  <text x="80" y="930" fill="#9aa3ad" font-family="monospace" font-size="22">PLACEHOLDER ART // REPLACE</text>
+</svg>

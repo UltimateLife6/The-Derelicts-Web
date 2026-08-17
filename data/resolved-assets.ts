@@ -1,0 +1,52 @@
+export type AssetKind = "raster" | "svg" | "video" | "other";
+
+export type ResolvedAsset = {
+  src: string;
+  kind: AssetKind;
+};
+
+export const resolvedAssets: Record<string, ResolvedAsset> = {
+  "/images/backgrounds/hero": { src: "/images/backgrounds/hero.svg", kind: "svg" },
+  "/images/brand/logo": { src: "/images/brand/logo.svg", kind: "svg" },
+  "/images/characters/icebox": { src: "/images/characters/icebox.svg", kind: "svg" },
+  "/images/characters/icebox-bg": { src: "/images/characters/icebox-bg.svg", kind: "svg" },
+  "/images/characters/moldy": { src: "/images/characters/moldy.svg", kind: "svg" },
+  "/images/characters/moldy-bg": { src: "/images/characters/moldy-bg.svg", kind: "svg" },
+  "/images/characters/packet": { src: "/images/characters/packet.svg", kind: "svg" },
+  "/images/characters/packet-bg": { src: "/images/characters/packet-bg.svg", kind: "svg" },
+  "/images/characters/ratchet": { src: "/images/characters/ratchet.svg", kind: "svg" },
+  "/images/characters/ratchet-bg": { src: "/images/characters/ratchet-bg.svg", kind: "svg" },
+  "/images/characters/scraps": { src: "/images/characters/scraps.svg", kind: "svg" },
+  "/images/characters/scraps-bg": { src: "/images/characters/scraps-bg.svg", kind: "svg" },
+  "/images/characters/spark": { src: "/images/characters/spark.svg", kind: "svg" },
+  "/images/characters/spark-bg": { src: "/images/characters/spark-bg.svg", kind: "svg" },
+  "/images/characters/volt": { src: "/images/characters/volt.svg", kind: "svg" },
+  "/images/characters/volt-bg": { src: "/images/characters/volt-bg.svg", kind: "svg" },
+  "/images/characters/willow": { src: "/images/characters/willow.svg", kind: "svg" },
+  "/images/characters/willow-bg": { src: "/images/characters/willow-bg.svg", kind: "svg" },
+  "/images/inventions/boom-box": { src: "/images/inventions/boom-box.svg", kind: "svg" },
+  "/images/inventions/junk-cannon": { src: "/images/inventions/junk-cannon.svg", kind: "svg" },
+  "/images/inventions/magnet-gun": { src: "/images/inventions/magnet-gun.svg", kind: "svg" },
+  "/images/inventions/microwave-drone": { src: "/images/inventions/microwave-drone.svg", kind: "svg" },
+  "/images/inventions/paint-bomb": { src: "/images/inventions/paint-bomb.svg", kind: "svg" },
+  "/images/inventions/rocket-cart": { src: "/images/inventions/rocket-cart.svg", kind: "svg" },
+  "/images/inventions/scout-drone": { src: "/images/inventions/scout-drone.svg", kind: "svg" },
+  "/images/inventions/soda-bomb": { src: "/images/inventions/soda-bomb.svg", kind: "svg" },
+  "/images/inventions/tesla-bat": { src: "/images/inventions/tesla-bat.svg", kind: "svg" },
+  "/images/inventions/trash-tornado": { src: "/images/inventions/trash-tornado.svg", kind: "svg" },
+  "/images/inventions/vacuum-cannon": { src: "/images/inventions/vacuum-cannon.svg", kind: "svg" },
+  "/images/news/first-transmission": { src: "/images/news/first-transmission.svg", kind: "svg" },
+  "/images/news/map-fragments": { src: "/images/news/map-fragments.svg", kind: "svg" },
+  "/images/news/volt-board": { src: "/images/news/volt-board.svg", kind: "svg" },
+  "/images/punktown/broken-wheel": { src: "/images/punktown/broken-wheel.svg", kind: "svg" },
+  "/images/punktown/deadmans-arcade": { src: "/images/punktown/deadmans-arcade.svg", kind: "svg" },
+  "/images/punktown/derelict-market": { src: "/images/punktown/derelict-market.svg", kind: "svg" },
+  "/images/punktown/flooded-midway": { src: "/images/punktown/flooded-midway.svg", kind: "svg" },
+  "/images/punktown/maintenance-tunnels": { src: "/images/punktown/maintenance-tunnels.svg", kind: "svg" },
+  "/images/punktown/old-rollercoaster": { src: "/images/punktown/old-rollercoaster.svg", kind: "svg" },
+  "/images/punktown/radio-tower": { src: "/images/punktown/radio-tower.svg", kind: "svg" },
+  "/images/punktown/scrapyard": { src: "/images/punktown/scrapyard.svg", kind: "svg" },
+  "/images/punktown/the-funhouse": { src: "/images/punktown/the-funhouse.svg", kind: "svg" },
+  "/images/punktown/the-pit": { src: "/images/punktown/the-pit.svg", kind: "svg" },
+  "/images/punktown/trash-mountain": { src: "/images/punktown/trash-mountain.svg", kind: "svg" },
+};

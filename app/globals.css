@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07080c;
+  --foreground: #e8e4d8;
+  --ink: #07080c;
+  --char: #10131a;
+  --steel: #1a212b;
+  --panel: #242b36;
+  --paper: #d4c4a8;
+  --haze: #9aa3ad;
+  --volt: #f5e642;
+  --hazard: #ff6b1a;
+  --acid: #b8f54a;
+  --arc: #3dfff3;
+  --flare: #ff2d6a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-char: var(--char);
+  --color-steel: var(--steel);
+  --color-panel: var(--panel);
+  --color-paper: var(--paper);
+  --color-haze: var(--haze);
+  --color-volt: var(--volt);
+  --color-hazard: var(--hazard);
+  --color-acid: var(--acid);
+  --color-arc: var(--arc);
+  --color-flare: var(--flare);
+  --font-display: var(--font-display), "Arial Black", sans-serif;
+  --font-sans: var(--font-sans), "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-mark: var(--font-mark), cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  background: var(--ink);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--volt);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--volt);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[role="radio"]:focus-visible {
+  outline: 3px solid var(--volt);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  background: var(--volt);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hazard-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ink),
+    var(--ink) 8px,
+    var(--volt) 8px,
+    var(--volt) 16px
+  );
+}
+
+.tape-edge {
+  box-shadow:
+    0 10px 0 rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.sticker-shadow {
+  box-shadow:
+    3px 5px 0 rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.panel-rivets {
+  background-image:
+    radial-gradient(circle at 12px 12px, #6a7380 0 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 12px) 12px, #6a7380 0 3px, transparent 4px),
+    radial-gradient(circle at 12px calc(100% - 12px), #6a7380 0 3px, transparent 4px),
+    radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), #6a7380 0 3px, transparent 4px);
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.hero-crt {
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 255, 220, 0.035) 0px,
+      rgba(0, 255, 220, 0.035) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+.hero-sky {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(255, 107, 26, 0.18), transparent 42%),
+    radial-gradient(ellipse at 80% 30%, rgba(61, 255, 243, 0.12), transparent 38%),
+    radial-gradient(ellipse at 50% 100%, rgba(245, 230, 66, 0.08), transparent 50%),
+    linear-gradient(180deg, #07080c 0%, #141821 42%, #1b140e 100%);
+}
+
+.spark-field::before,
+.spark-field::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--volt);
+  box-shadow:
+    18vw 22vh 0 0 var(--arc),
+    72vw 18vh 0 1px var(--volt),
+    40vw 70vh 0 0 var(--hazard),
+    88vw 64vh 0 1px var(--arc),
+    12vw 58vh 0 0 white,
+    60vw 40vh 0 0 var(--volt);
+  animation: spark-drift 7s ease-in-out infinite;
+}
+
+.spark-field::after {
+  animation-delay: -3s;
+  opacity: 0.6;
+}
+
+@keyframes spark-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(12px, -18px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  100% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes glitch-shift {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-3px, 1px);
+  }
+  40% {
+    clip-path: inset(40% 0 20% 0);
+    transform: translate(3px, -1px);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-4px, 2px, 0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translate3d(5px, -2px, 0) rotate(0.5deg);
+  }
+  75% {
+    transform: translate3d(-3px, 1px, 0);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes assemble {
+  from {
+    transform: translateY(-18px) scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 4.5s steps(2, end) infinite;
+}
+
+.animate-glitch {
+  animation: glitch-shift 1.2s steps(2, end) infinite;
+}
+
+.animate-shake {
+  animation: shake 0.45s linear;
+}
+
+.animate-ticker {
+  animation: ticker 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-ticker:hover,
+  .animate-ticker:focus-within {
+    animation-play-state: paused;
+  }
+}
+
+.animate-assemble {
+  animation: assemble 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .spark-field::before,
+  .spark-field::after,
+  .animate-flicker,
+  .animate-glitch,
+  .animate-shake,
+  .animate-ticker,
+  .animate-assemble {
+    animation: none !important;
+  }
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.mark {
+  font-family: var(--font-mark);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.hide-scroll {
+  scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.fade-x {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 92%, transparent);
+}
+
+@media (min-width: 768px) {
+  .fade-x {
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 88%, transparent);
+  }
+}
+
+.neon-sign {
+  color: var(--hazard);
+  text-shadow:
+    0 0 8px rgba(255, 107, 26, 0.85),
+    0 0 18px rgba(255, 107, 26, 0.4);
+}
+
+.view-rise {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .view-rise {
+    animation: assemble 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+}
+
+.bench-slot {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
+}
+
+.is-building .bench-slot {
+  transform: translateY(10px) scale(0.86);
+  opacity: 0.35;
+}
+
+.ability-wire {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--arc) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.hash-anchor {
+  scroll-margin-top: 5.5rem;
+}
