@@ -3,8 +3,8 @@ import { TerminalPanel } from "@/components/ui/TerminalPanel";
 
 export function MysterySection() {
   return (
-    <section className="relative overflow-hidden bg-black py-20 md:py-28">
-      <div className="pointer-events-none absolute inset-0 opacity-30 scanlines" />
+    <section className="scene-tunnel relative overflow-hidden py-20 md:py-28">
+      <div className="pointer-events-none absolute inset-0 opacity-15 scanlines" />
       <div className="relative mx-auto max-w-5xl px-4 md:px-6">
         <p className="font-mono text-xs tracking-[0.3em] text-flare">
           FILE / REDACTED

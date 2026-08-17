@@ -6,6 +6,11 @@ import { KeyboardEvent, useRef } from "react";
 
 const tilts = ["-3deg", "2.5deg", "-1.5deg", "3deg", "-2deg", "1deg", "-4deg", "2deg"];
 
+function cardWidth(index: number) {
+  if (index === 0) return "w-[18.5rem] md:w-[24rem]";
+  return index % 3 === 0 ? "w-[17rem] md:w-[21rem]" : "w-[16rem] md:w-[19.5rem]";
+}
+
 export function CharacterCarousel({
   characters,
   onSelect,
@@ -36,7 +41,7 @@ export function CharacterCarousel({
   return (
     <div>
       <div className="mb-3 flex items-center justify-between gap-3">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-haze">
+        <p className="text-sm tracking-[0.16em] text-ink/60">
           SLIDE THE WALL
         </p>
         <div className="flex gap-2">
@@ -68,7 +73,7 @@ export function CharacterCarousel({
         {characters.map((character, index) => (
           <div
             key={character.slug}
-            className={`shrink-0 snap-start ${index % 3 === 0 ? "w-[13.5rem] md:w-[16.5rem]" : "w-[12.25rem] md:w-[15rem]"} ${index % 2 === 0 ? "mt-0" : "mt-6"}`}
+            className={`shrink-0 snap-start ${cardWidth(index)} ${index % 2 === 0 ? "mt-0" : "mt-8"}`}
           >
             <CharacterCard
               character={character}

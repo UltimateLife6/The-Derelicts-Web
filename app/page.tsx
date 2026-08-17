@@ -30,15 +30,15 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <StoryIntro />
-      <GameplayLoop />
-      <InventionBuilder />
       <CharacterRoster />
       <FeaturedCharacter />
       <PunktownPreview />
+      <InventionBuilder />
+      <GameplayLoop />
       <ScavengeDemo />
       <GameplayPhilosophy />
       <MovementSection />
+      <StoryIntro />
       <MysterySection />
       <CrewSignup />
     </>

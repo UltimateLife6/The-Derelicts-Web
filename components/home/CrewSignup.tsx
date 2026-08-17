@@ -55,24 +55,21 @@ export function CrewSignup() {
   }
 
   return (
-    <section id="join-the-crew" className="hash-anchor bg-char py-20 md:py-28">
+    <section id="join-the-crew" className="hash-anchor bg-[#c45a28] py-20 md:py-28">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1fr_1.1fr] md:px-6">
         <div>
-          <p className="font-mono text-xs tracking-[0.28em] text-volt">
-            TRANSMISSION
-          </p>
+          <p className="font-mark text-2xl text-ink">stay on the radio</p>
           <h2 className="display mt-3 text-6xl text-paper md:text-8xl">
             JOIN THE CREW
           </h2>
-          <p className="mt-5 max-w-md text-lg text-haze">
-            Get development updates, character reveals, Punktown transmissions
-            and future playtest invitations.
+          <p className="mt-5 max-w-md font-mark text-2xl text-ink">
+            Updates. Reveals. Playtests. No fake signup.
           </p>
         </div>
 
         <form
           onSubmit={onSubmit}
-          className="border-4 border-black bg-steel p-6 panel-rivets"
+          className="border-4 border-black bg-[#171310] p-6 paint-panel"
           noValidate
         >
           {state === "success" ? (

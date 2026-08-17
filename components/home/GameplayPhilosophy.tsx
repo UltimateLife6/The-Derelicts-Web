@@ -38,9 +38,9 @@ const ideas = [
 
 export function GameplayPhilosophy() {
   return (
-    <section className="bg-ink py-20 md:py-28">
+    <section className="bg-[#f0e2c4] py-20 text-ink md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <h2 className="page-title text-[clamp(3rem,9vw,6.5rem)] text-paper">
+        <h2 className="page-title text-[clamp(3rem,9vw,6.5rem)]">
           OUTSMART THEM.
         </h2>
         <div className="mt-10 flex flex-wrap items-start gap-5 md:gap-8">

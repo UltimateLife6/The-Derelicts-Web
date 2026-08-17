@@ -12,18 +12,21 @@ Only the homepage hero raster is preloaded (`priority` + `sizes="100vw"`). Hero 
 
 Keep important faces, logos, invention silhouettes, and landmarks inside the safe zone. CSS already applies fit classes; do not rely on letterboxing in the layout.
 
-- **Mobile (~390×844, 9:19.5 hero):** the hero is full-viewport height. Top and bottom crop. Keep the subject in the vertical middle third.
+- **Mobile (~390×844, 9:19.5 hero):** keep, in this order: a character, the Punktown identity, then a skyline landmark. Focal point is left-center and high enough to hold faces (`object-[32%_24%]`).
 - **Tablet (~768×1024):** still a tall hero. Keep faces and the park skyline away from the top 12% and bottom 18%.
-- **Desktop (~1440×900):** 16:9-ish. Side crop is mild. Center the Punktown skyline.
+- **Desktop (~1440×900):** cinematic. Center the Ferris wheel, coaster, and PunkTown sign.
 - **Ultrawide (~2560×1080 and up):** left and right crop hard. Keep logos, faces, Radio Tower, Broken Wheel, and the rollercoaster inside the center 60% width.
+
+Do not bury key art under a full-screen dark overlay. Type sits on a local scrim only.
 
 | Fit | CSS behavior | Safe zone |
 | --- | --- | --- |
-| `hero` | cover; focal point 32% from top on phones, 42% on desktop, center on ultrawide | subject in center 60% × middle 50% |
-| `face` | cover; focal point ~16–18% from top | head/shoulders in the upper third, not flush to the frame |
+| `hero` | cover; mobile left-center / high, desktop center | character + sign + one landmark |
+| `face` | cover; focal point ~16–18% from top | head/shoulders in the upper third |
+| `body` | cover; a little lower than face | full-body silhouette, tool/weapon visible |
 | `landmark` | cover, center | named building/ride in the center 70% |
-| `silhouette` | contain + 8% padding | full invention visible; no edge-critical detail required |
-| `logo` | contain + padding | full mark visible |
+| `silhouette` | contain + 8% padding | full invention or component visible |
+| `logo` | contain + padding | painted wordmark fully visible |
 | `wide` | cover, center | headline subject in the center 70% |
 
 ## How to replace a placeholder
@@ -31,6 +34,21 @@ Keep important faces, logos, invention silhouettes, and landmarks inside the saf
 1. Export the production file next to the existing SVG, same basename. Example: `public/images/characters/spark.webp` beside `spark.svg`.
 2. Run `npm run dev` or `npm run build`. The scanner writes `data/resolved-assets.ts`.
 3. Confirm the page. If the raster is absent or 404s, the SVG (or the pending label) still shows.
+
+When raster key art or portraits are present, keep extra grain, scratches, and CRT off the artwork. UI can stay dirty. Art should stay readable.
+
+## Extra drop-in slots (no code change)
+
+These logical paths are already wired. Drop files when they exist.
+
+| Slot | Path | Notes |
+| --- | --- | --- |
+| Painted logo | `/images/brand/logo` | White distressed wordmark. Navbar stays typeset until a raster exists. |
+| Character full-body | `/images/characters/{slug}-full` | 3:4, ~1600×2133. Featured + profile pages prefer this over the portrait when raster exists. |
+| Salvage components | `/images/components/{id}` | Physical objects (battery, microwave, drone…). 1:1, 800×800, contain. |
+| Graffiti / stickers | `/images/graffiti/{name}` | Optional marks. Not required for launch. |
+
+Component ids: `battery`, `pipe`, `capacitor`, `drone`, `microwave`, `shopping-cart`, `motor`, `vacuum`, `camera`, `radio`, `circuit-board`, `wiring`, `speaker`, `scrap-metal`.
 
 ---
 
@@ -41,10 +59,10 @@ Keep important faces, logos, invention silhouettes, and landmarks inside the saf
 - **Filename / path:** `hero.webp` (preferred) at `public/images/backgrounds/hero`
 - **Aspect ratio:** 16:9 or 21:9 landscape. Do not ship a portrait key art for this slot.
 - **Recommended size:** 2560×1440 (16:9) or 2560×1080 (21:9). 3840×2160 is acceptable if compressed.
-- **Purpose:** Punktown at dusk/night as the homepage atmosphere. Park silhouette, Radio Tower, and skyline must read at a glance.
-- **Appears in:** `components/home/HeroMedia.tsx`, `components/home/Hero.tsx` (hides the CSS park silhouette when raster exists), press key-art download (`data/media.ts`)
-- **Crop notes:** Ultrawide crops the sides. Keep the tower and coaster in the center. Mobile crops top/bottom; keep the horizon near the lower-middle, not the top edge.
-- **Status:** SVG placeholder only. Raster is not live, so the CSS `hero-sky` plus park silhouette still show.
+- **Purpose:** Punktown in daylight as a place you want to explore. Park sign, Ferris wheel, coaster, characters, and scrap machinery must read at a glance.
+- **Appears in:** `components/home/HeroMedia.tsx`, `components/home/Hero.tsx` (hides the CSS park skyline when raster exists), press key-art download (`data/media.ts`)
+- **Crop notes:** Mobile priority is character, then Punktown identity, then one landmark. Do not recrop as a night-only cyberpunk still.
+- **Status:** SVG placeholder only. Raster is not live, so the daylight `hero-sky` plus park skyline still show.
 
 ### Spark character art
 

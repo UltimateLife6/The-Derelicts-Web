@@ -26,14 +26,14 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled || pathname !== "/"
-          ? "border-b-4 border-black bg-ink"
+          ? "border-b-4 border-black bg-[#171310]"
           : "bg-transparent has-[[aria-expanded=true]]:border-b-4 has-[[aria-expanded=true]]:border-black has-[[aria-expanded=true]]:bg-ink",
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         <Link
           href="/"
-          className="display text-2xl tracking-[0.18em] text-volt md:text-3xl"
+          className="brand-paint text-2xl md:text-3xl"
           aria-label="The Derelicts home"
         >
           THE DERELICTS
@@ -45,7 +45,7 @@ export function Navbar() {
               key={item.id}
               href={item.href}
               className={cn(
-                "font-mono text-xs tracking-[0.22em] text-paper/80 transition hover:text-volt",
+                "text-sm tracking-[0.16em] text-paper/90 transition hover:text-volt",
                 pathname === item.href && "bg-volt px-2 py-1 text-ink",
               )}
               aria-current={pathname === item.href ? "page" : undefined}
@@ -80,7 +80,7 @@ function MobileNav() {
     <div className="lg:hidden">
       <button
         type="button"
-        className="border border-volt px-3 py-2 font-mono text-xs tracking-[0.24em] text-volt"
+        className="border-2 border-white px-3 py-2 font-display text-sm tracking-[0.12em] text-paper"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((value) => !value)}

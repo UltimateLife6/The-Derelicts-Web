@@ -36,6 +36,12 @@ export default async function DerelictPage({
   if (!character) notFound();
   const atmosphere = resolvePublicAsset(character.backgroundImage);
 
+  const fullBody = resolvePublicAsset(`/images/characters/${character.slug}-full`);
+  const portraitSrc =
+    fullBody?.kind === "raster"
+      ? `/images/characters/${character.slug}-full`
+      : character.portrait;
+
   return (
     <div className="relative overflow-hidden bg-ink pt-24 pb-20 md:pt-28 md:pb-28">
       {atmosphere?.kind === "raster" ? (
@@ -48,23 +54,26 @@ export default async function DerelictPage({
           className={`pointer-events-none opacity-[0.16] ${fitClassName("landmark")}`}
         />
       ) : null}
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[0.8fr_1.2fr] md:px-6">
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[0.9fr_1.1fr] md:px-6">
         <div className="-rotate-1 border-4 border-black bg-paper p-2 shadow-[8px_10px_0_#000]">
           <GameImage
-            src={character.portrait}
+            src={portraitSrc}
             alt={`${character.name}, ${character.specialty}`}
             accent={character.color}
-            fit="face"
-            className="aspect-[4/5]"
+            fit={fullBody?.kind === "raster" ? "body" : "face"}
+            className="aspect-[3/4] min-h-[24rem] md:min-h-[32rem]"
           />
         </div>
         <div>
-          <p className="font-mono text-xs tracking-[0.24em]" style={{ color: character.color }}>
-            {character.specialty}
+          <p className="font-mark text-2xl" style={{ color: character.color }}>
+            THE {character.specialty}
           </p>
           <h1 className="page-title mt-2 text-[clamp(3.5rem,10vw,6.5rem)] text-paper">
             {character.name}
           </h1>
+          <p className="mt-3 font-mark text-2xl" style={{ color: character.color }}>
+            {character.hook}
+          </p>
           <p className="mt-4 max-w-xl text-lg text-haze">{character.description}</p>
           <p className="mt-4 font-mono text-xs tracking-[0.16em] text-volt">
             SIGNATURE INVENTION {" / "} {character.signatureInvention}

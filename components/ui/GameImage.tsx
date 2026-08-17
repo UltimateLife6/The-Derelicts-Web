@@ -35,11 +35,11 @@ export function GameImage({
 
   return (
     <div
-      className={cn("relative overflow-hidden bg-steel", className)}
+      className={cn("relative overflow-hidden bg-[#2c261e]", className)}
       style={
         accent
           ? {
-              background: `radial-gradient(circle at 28% 18%, ${accent}55, transparent 42%), #1a212b`,
+              background: `radial-gradient(circle at 28% 18%, ${accent}66, transparent 42%), #cfe8f7`,
             }
           : undefined
       }

@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 import { resolvePublicAsset } from "@/lib/assets";
 import { createMetadata } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
-import { Barlow, Bebas_Neue, Permanent_Marker, Share_Tech_Mono } from "next/font/google";
+import { Barlow_Condensed, Bebas_Neue, Permanent_Marker, Share_Tech_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
@@ -15,7 +15,7 @@ const display = Bebas_Neue({
   display: "swap",
 });
 
-const sans = Barlow({
+const sans = Barlow_Condensed({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07080c",
+  themeColor: "#6eb7ef",
   colorScheme: "dark",
 };
 

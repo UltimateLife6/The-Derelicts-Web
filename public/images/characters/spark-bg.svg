@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="SPARK">
-  <rect width="800" height="1000" fill="#10131a"/>
-  <rect x="40" y="40" width="720" height="920" fill="#1a212b" stroke="#f5e642" stroke-width="8"/>
-  <polygon points="80,180 320,90 560,210 720,120 720,420 80,500" fill="#f5e642" opacity="0.18"/>
-  <circle cx="250" cy="430" r="120" fill="#f5e642" opacity="0.28"/>
-  <rect x="420" y="360" width="220" height="280" fill="#07080c" stroke="#f5e642" stroke-dasharray="10 8"/>
-  <text x="80" y="120" fill="#f5e642" font-family="monospace" font-size="28" letter-spacing="8">BG</text>
-  <text x="80" y="880" fill="#d4c4a8" font-family="Impact, sans-serif" font-size="72">SPARK</text>
-  <text x="80" y="930" fill="#9aa3ad" font-family="monospace" font-size="22">PLACEHOLDER ART // REPLACE</text>
+  <defs>
+    <linearGradient id="sky-spark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ec8f5"/>
+      <stop offset="48%" stop-color="#f7ddae"/>
+      <stop offset="100%" stop-color="#c45a28"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#sky-spark)"/>
+  <path d="M40 760 L180 520 L320 780 Z" fill="#f5e642" opacity="0.55"/>
+  <circle cx="560" cy="360" r="140" fill="#f5e642" opacity="0.35"/>
+  <rect x="420" y="520" width="240" height="220" fill="#171310" opacity="0.55"/>
+  <text x="64" y="120" fill="#171310" font-family="Impact, sans-serif" font-size="36">BG</text>
+  <text x="64" y="860" fill="#fff" font-family="Impact, sans-serif" font-size="72" stroke="#171310" stroke-width="8" paint-order="stroke">SPARK</text>
+  <text x="64" y="920" fill="#171310" font-family="monospace" font-size="20">PLACEHOLDER ART // REPLACE</text>
 </svg>

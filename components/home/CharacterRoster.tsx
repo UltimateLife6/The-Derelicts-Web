@@ -7,14 +7,14 @@ import { track } from "@/lib/analytics";
 
 export function CharacterRoster() {
   return (
-    <section className="overflow-hidden bg-ink py-20 md:py-28">
+    <section className="overflow-hidden bg-[#f0e2c4] py-20 text-ink md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <h2 className="page-title max-w-4xl text-[clamp(2.4rem,7vw,4.6rem)] text-paper">
-          EVERY DERELICT IS DANGEROUS FOR A DIFFERENT REASON.
+        <p className="font-mark text-2xl text-magenta">the crew</p>
+        <h2 className="page-title mt-2 max-w-4xl text-[clamp(2.4rem,7vw,4.6rem)]">
+          MISFITS. GENIUSES. THE FUTURE.
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-haze">
-          They aren&apos;t soldiers. They&apos;re engineers, hackers, mechanics,
-          chemists, inventors and survivors.
+        <p className="mt-3 max-w-xl text-lg">
+          Not soldiers. Kids who can invent, hack, and hold the park together.
         </p>
         <div className="mt-8">
           <CharacterCarousel
@@ -22,7 +22,7 @@ export function CharacterRoster() {
             onSelect={(slug) => track("character_select", { slug })}
           />
         </div>
-        <ButtonLink href="/derelicts" variant="ghost" className="mt-4">
+        <ButtonLink href="/derelicts" variant="ghost" className="mt-4 border-ink text-ink hover:border-magenta hover:text-magenta">
           MEET THE DERELICTS →
         </ButtonLink>
       </div>

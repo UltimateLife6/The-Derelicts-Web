@@ -2,7 +2,7 @@ import { resolvedAssets, type ResolvedAsset } from "@/data/resolved-assets";
 
 const EXTENSION = /\.(svg|webp|avif|jpe?g|png|gif|mp4|webm|pdf|zip)$/i;
 
-export type ImageFit = "face" | "landmark" | "silhouette" | "hero" | "logo" | "wide";
+export type ImageFit = "face" | "body" | "landmark" | "silhouette" | "hero" | "logo" | "wide";
 
 export function logicalAssetPath(src: string) {
   return src.replace(EXTENSION, "");
@@ -16,8 +16,10 @@ export function fitClassName(fit: ImageFit) {
   switch (fit) {
     case "face":
       return "object-cover object-[center_16%] sm:object-[center_18%]";
+    case "body":
+      return "object-cover object-[center_22%] sm:object-[center_28%]";
     case "hero":
-      return "object-cover object-[center_32%] sm:object-[center_38%] lg:object-[center_42%] 2xl:object-center";
+      return "object-cover object-[32%_24%] sm:object-[38%_32%] lg:object-[center_38%] 2xl:object-center";
     case "landmark":
       return "object-cover object-center";
     case "wide":
@@ -34,7 +36,9 @@ export function defaultSizes(fit: ImageFit) {
     case "hero":
       return "100vw";
     case "face":
-      return "(max-width: 768px) 70vw, (max-width: 1200px) 320px, 420px";
+      return "(max-width: 768px) 80vw, (max-width: 1200px) 420px, 560px";
+    case "body":
+      return "(max-width: 768px) 90vw, (max-width: 1200px) 480px, 640px";
     case "landmark":
       return "(max-width: 1024px) 100vw, 640px";
     case "wide":
@@ -52,7 +56,9 @@ export function inferFit(src: string): ImageFit {
   if (path.includes("/brand/logo") || path.includes("/brand/icon")) return "logo";
   if (path.includes("/inventions/")) return "silhouette";
   if (path.includes("/characters/") && path.endsWith("-bg")) return "landmark";
+  if (path.includes("/characters/") && path.endsWith("-full")) return "body";
   if (path.includes("/characters/")) return "face";
+  if (path.includes("/components/") || path.includes("/graffiti/")) return "silhouette";
   if (path.includes("/punktown/")) return "landmark";
   if (path.includes("/news/") || path.includes("/media/")) return "wide";
   return "landmark";

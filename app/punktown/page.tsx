@@ -10,15 +10,14 @@ export const metadata = createMetadata({
 
 export default function PunktownPage() {
   return (
-    <div className="bg-ink pt-24 pb-20 md:pt-28 md:pb-28">
+    <div className="scene-sky pt-24 pb-20 md:pt-28 md:pb-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <p className="font-mark text-3xl text-hazard">settlement fragment</p>
-        <h1 className="page-title mt-2 text-[clamp(3.4rem,12vw,8rem)] text-paper">
+          <p className="font-mark text-3xl text-magenta">no adults allowed</p>
+        <h1 className="page-title mt-2 text-[clamp(3.4rem,12vw,8rem)]">
           PUNKTOWN
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-haze">
-          An abandoned amusement park that learned how to be a city. Every booth,
-          ride, and flooded path is a pile of parts if you know where to rip.
+        <p className="mt-4 max-w-2xl text-lg">
+          Abandoned amusement park. New city. Every ride is a pile of parts.
         </p>
         <div className="mt-10">
           <PunktownMap />

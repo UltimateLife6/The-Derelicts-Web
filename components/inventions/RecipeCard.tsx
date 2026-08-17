@@ -20,8 +20,8 @@ export function RecipeCard({
               src={invention.image}
               alt={`${invention.name} silhouette`}
               fit="silhouette"
-              sizes="96px"
-              className="h-20 w-20 shrink-0 border border-white/10"
+              sizes="160px"
+              className="h-28 w-28 shrink-0 border-2 border-black"
             />
             <div>
               <p className="font-mono text-[11px] tracking-[0.2em] text-arc">
@@ -33,12 +33,16 @@ export function RecipeCard({
           <div className="flex flex-wrap items-center gap-2">
             {invention.componentIds.map((id, index) => (
               <span key={id} className="flex items-center gap-2">
-                <ComponentChip label={getComponent(id)?.name ?? id} />
+                <ComponentChip label={getComponent(id)?.name ?? id} image={getComponent(id)?.image} />
                 {index < invention.componentIds.length - 1 ? (
-                  <span className="text-volt" aria-hidden="true">
+                  <span className="eq-mark text-2xl" aria-hidden="true">
                     +
                   </span>
-                ) : null}
+                ) : (
+                  <span className="eq-mark text-2xl" aria-hidden="true">
+                    =
+                  </span>
+                )}
               </span>
             ))}
           </div>

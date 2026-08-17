@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07080c;
-  --foreground: #e8e4d8;
-  --ink: #07080c;
-  --char: #10131a;
-  --steel: #1a212b;
-  --panel: #242b36;
-  --paper: #d4c4a8;
-  --haze: #9aa3ad;
+  --background: #1c1712;
+  --foreground: #f3ead6;
+  --ink: #171310;
+  --char: #241c16;
+  --steel: #2c261e;
+  --panel: #3a3228;
+  --paper: #f0e2c4;
+  --haze: #b9a894;
   --volt: #f5e642;
   --hazard: #ff6b1a;
-  --acid: #b8f54a;
+  --acid: #c6ff3d;
   --arc: #3dfff3;
-  --flare: #ff2d6a;
+  --flare: #ff2d9a;
+  --sky: #6eb7ef;
+  --rust: #c45a28;
+  --magenta: #ff2d9a;
 }
 
 @theme inline {
@@ -30,6 +33,9 @@
   --color-acid: var(--acid);
   --color-arc: var(--arc);
   --color-flare: var(--flare);
+  --color-sky: var(--sky);
+  --color-rust: var(--rust);
+  --color-magenta: var(--magenta);
   --font-display: var(--font-display), "Arial Black", sans-serif;
   --font-sans: var(--font-sans), "Helvetica Neue", sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
@@ -89,8 +95,8 @@ input:focus-visible,
   inset: 0;
   pointer-events: none;
   z-index: 60;
-  opacity: 0.09;
-  mix-blend-mode: overlay;
+  opacity: 0.035;
+  mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -134,24 +140,58 @@ input:focus-visible,
   );
 }
 
-.hero-crt {
-  background:
-    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0, 255, 220, 0.035) 0px,
-      rgba(0, 255, 220, 0.035) 1px,
-      transparent 1px,
-      transparent 3px
+.type-scrim {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 16, 12, 0.78) 0%,
+    rgba(20, 16, 12, 0.48) 62%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .type-scrim {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(20, 16, 12, 0.2) 28%,
+      rgba(20, 16, 12, 0.72) 100%
     );
+  }
 }
 
 .hero-sky {
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(255, 107, 26, 0.18), transparent 42%),
-    radial-gradient(ellipse at 80% 30%, rgba(61, 255, 243, 0.12), transparent 38%),
-    radial-gradient(ellipse at 50% 100%, rgba(245, 230, 66, 0.08), transparent 50%),
-    linear-gradient(180deg, #07080c 0%, #141821 42%, #1b140e 100%);
+    radial-gradient(ellipse at 78% 12%, rgba(255, 255, 255, 0.7), transparent 22%),
+    radial-gradient(ellipse at 18% 70%, rgba(255, 107, 26, 0.22), transparent 36%),
+    linear-gradient(180deg, #6eb7ef 0%, #9fd0f5 26%, #f7ddae 58%, #e08a3c 78%, #8a4e2a 100%);
+}
+
+.scene-sky {
+  background: linear-gradient(180deg, #7ec8f5 0%, #d7eefc 38%, #f0e2c4 100%);
+  color: var(--ink);
+}
+
+.scene-sunset {
+  background: linear-gradient(180deg, #f3a35a 0%, #c45a28 46%, #241c16 100%);
+}
+
+.scene-arcade {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 45, 154, 0.28), transparent 36%),
+    radial-gradient(circle at 80% 80%, rgba(61, 255, 243, 0.2), transparent 32%),
+    #1a1218;
+}
+
+.scene-tunnel {
+  background: #120c10;
+}
+
+.paint-panel {
+  background: #171310;
+  box-shadow:
+    6px 8px 0 #000,
+    inset 0 0 0 3px rgba(255, 255, 255, 0.06);
 }
 
 .spark-field::before,
@@ -203,21 +243,21 @@ input:focus-visible,
 
 @keyframes glitch-shift {
   0%,
+  92%,
   100% {
     clip-path: inset(0 0 0 0);
     transform: translate(0);
+    opacity: 0;
   }
-  20% {
-    clip-path: inset(10% 0 60% 0);
-    transform: translate(-3px, 1px);
+  94% {
+    clip-path: inset(12% 0 58% 0);
+    transform: translate(-2px, 1px);
+    opacity: 0.45;
   }
-  40% {
+  96% {
     clip-path: inset(40% 0 20% 0);
-    transform: translate(3px, -1px);
-  }
-  60% {
-    clip-path: inset(80% 0 5% 0);
-    transform: translate(-2px, 0);
+    transform: translate(2px, -1px);
+    opacity: 0.35;
   }
 }
 
@@ -262,7 +302,7 @@ input:focus-visible,
 }
 
 .animate-glitch {
-  animation: glitch-shift 1.2s steps(2, end) infinite;
+  animation: glitch-shift 7s steps(2, end) infinite;
 }
 
 .animate-shake {
@@ -315,6 +355,22 @@ input:focus-visible,
   text-transform: uppercase;
   text-wrap: balance;
   overflow-wrap: break-word;
+}
+
+.brand-paint {
+  font-family: var(--font-mark);
+  color: #fff;
+  line-height: 0.95;
+  text-shadow:
+    2px 3px 0 #000,
+    -1px 1px 0 #000,
+    0 0 0 #000;
+}
+
+.eq-mark {
+  font-family: var(--font-mark);
+  color: var(--magenta);
+  text-shadow: 2px 2px 0 #000;
 }
 
 .mark {

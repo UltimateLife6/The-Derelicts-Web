@@ -10,6 +10,7 @@ export type Character = {
   slug: string;
   specialty: string;
   tagline: string;
+  hook: string;
   description: string;
   portrait: string;
   backgroundImage: string;
@@ -47,6 +48,7 @@ export type SalvageComponent = {
   id: string;
   name: string;
   category: string;
+  image: string;
 };
 
 export type Location = {

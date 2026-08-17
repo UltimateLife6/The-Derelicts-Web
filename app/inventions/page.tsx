@@ -18,9 +18,8 @@ export default function InventionsPage() {
         <h1 className="page-title max-w-5xl text-[clamp(2.4rem,8vw,5.2rem)] text-paper">
           JUNK IS ONLY JUNK IF YOU LACK IMAGINATION.
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-haze">
-          Prototype recipes have working component lists. Concept inventions are
-          named fantasies still waiting for a bench.
+        <p className="mt-4 font-mark text-2xl text-volt">
+          OBJECT + OBJECT + OBJECT = RIDICULOUS INVENTION
         </p>
 
         <section className="mt-14">

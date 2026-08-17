@@ -4,16 +4,19 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t-4 border-black bg-char">
+    <footer className="border-t-4 border-black bg-[#171310]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-6">
         <div>
-          <p className="display text-4xl text-volt">THE DERELICTS</p>
-          <p className="mt-3 max-w-sm text-sm text-haze">
+          <p className="brand-paint text-4xl">THE DERELICTS</p>
+          <p className="mt-3 max-w-sm font-mark text-xl text-volt">
             The world threw them away. They built a better one.
+          </p>
+          <p className="mt-2 text-sm tracking-[0.12em] text-haze">
+            MISFITS. GENIUSES. THE FUTURE.
           </p>
         </div>
         <nav aria-label="Footer">
-          <p className="mb-3 font-mono text-[11px] tracking-[0.24em] text-volt">
+          <p className="mb-3 text-sm tracking-[0.16em] text-volt">
             DIRECTORY
           </p>
           <ul className="space-y-2">

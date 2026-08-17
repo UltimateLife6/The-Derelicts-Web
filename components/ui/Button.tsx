@@ -9,7 +9,7 @@ const variants: Record<Variant, string> = {
   arcade:
     "bg-hazard text-ink border-4 border-black shadow-[inset_0_-6px_0_rgba(0,0,0,0.35)] hover:translate-y-0.5",
   stencil:
-    "border-2 border-volt bg-transparent text-volt hover:bg-volt hover:text-ink",
+    "border-2 border-paper bg-transparent text-paper hover:bg-paper hover:text-ink",
   ghost: "border border-haze/40 bg-transparent text-paper hover:border-volt hover:text-volt",
 };
 

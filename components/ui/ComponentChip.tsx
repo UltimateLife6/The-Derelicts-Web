@@ -1,20 +1,35 @@
+import { GameImage } from "@/components/ui/GameImage";
+import { resolvePublicAsset } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
 export function ComponentChip({
   label,
+  image,
   className,
 }: {
   label: string;
+  image?: string;
   className?: string;
 }) {
+  const art = image ? resolvePublicAsset(image) : null;
+
   return (
     <span
       className={cn(
-        "inline-flex items-center border border-dashed border-arc/70 bg-ink/70 px-3 py-1 font-mono text-xs uppercase tracking-[0.18em] text-arc",
+        "inline-flex items-center gap-2 border-2 border-black bg-paper px-3 py-1.5 text-ink shadow-[2px_2px_0_#000]",
         className,
       )}
     >
-      {label}
+      {art ? (
+        <GameImage
+          src={image!}
+          alt=""
+          fit="silhouette"
+          sizes="40px"
+          className="h-10 w-10 bg-transparent"
+        />
+      ) : null}
+      <span className="font-display text-sm tracking-[0.08em] uppercase">{label}</span>
     </span>
   );
 }

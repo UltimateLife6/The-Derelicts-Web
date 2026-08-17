@@ -35,7 +35,7 @@ export default function DerelictsPage() {
                 <Link
                   href={`/derelicts/${character.slug}`}
                   className={cn(
-                    "relative block max-w-sm border-4 border-black bg-paper p-2 shadow-[8px_10px_0_#000]",
+                    "relative block max-w-lg border-4 border-black bg-paper p-2 shadow-[8px_10px_0_#000]",
                     flip ? "lg:order-2 lg:justify-self-end" : "",
                     index % 2 === 0 ? "-rotate-1" : "rotate-1",
                   )}
@@ -49,12 +49,10 @@ export default function DerelictsPage() {
                   src={character.portrait}
                   alt={`${character.name}, ${character.specialty}`}
                   accent={character.color}
-                  fit="face"
-                  className="aspect-[4/5]"
+                  fit="body"
+                  className="aspect-[3/4] min-h-[22rem] md:min-h-[28rem]"
                 />
-                  <p className="mt-2 font-mono text-[10px] tracking-[0.2em] text-ink">
-                    {character.role} {" / "} {character.specialty}
-                  </p>
+          <p className="display mt-1 text-3xl text-ink">{character.hook}</p>
                 </Link>
                 <div className={flip ? "lg:order-1" : ""}>
                   <h2 className="page-title text-5xl text-paper md:text-6xl">

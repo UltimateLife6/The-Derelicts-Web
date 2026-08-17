@@ -87,27 +87,27 @@ function PunktownArt() {
       aria-label="Stylized map of Punktown, an abandoned amusement park"
     >
       <defs>
-        <pattern id="dirt" width="4" height="4" patternUnits="userSpaceOnUse">
-          <rect width="4" height="4" fill="#152016" />
-          <circle cx="1" cy="2" r="0.4" fill="#1d2a1c" />
-        </pattern>
+        <linearGradient id="park-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#7ec8f5" />
+          <stop offset="55%" stopColor="#f7ddae" />
+          <stop offset="100%" stopColor="#c45a28" />
+        </linearGradient>
       </defs>
-      <rect width="100" height="100" fill="url(#dirt)" />
-      <path d="M6 78 C 20 62 34 84 50 76 C 68 68 74 90 96 80 L 96 96 L 6 96 Z" fill="#1a2e22" />
-      <path d="M4 22 C 24 16 38 30 56 22 C 74 14 86 28 98 22" fill="none" stroke="#ff6b1a" strokeOpacity="0.45" strokeWidth="1.2" />
-      <path d="M8 70 C 26 58 40 74 58 66 C 74 58 84 72 96 64" fill="none" stroke="#3dfff3" strokeOpacity="0.35" strokeWidth="1.6" />
-      <ellipse cx="52" cy="68" rx="14" ry="8" fill="#16343c" stroke="#3dfff355" />
-      <polygon points="14,86 22,62 34,86" fill="#3a4630" />
-      <circle cx="72" cy="18" r="9" fill="none" stroke="#d4c4a8" strokeWidth="1.2" />
+      <rect width="100" height="100" fill="url(#park-sky)" />
+      <path d="M6 78 C 20 62 34 84 50 76 C 68 68 74 90 96 80 L 96 96 L 6 96 Z" fill="#8a4e2a" />
+      <path d="M4 22 C 24 16 38 30 56 22 C 74 14 86 28 98 22" fill="none" stroke="#ff6b1a" strokeOpacity="0.8" strokeWidth="1.4" />
+      <ellipse cx="52" cy="68" rx="14" ry="8" fill="#3dfff355" stroke="#3dfff3" />
+      <polygon points="14,86 22,62 34,86" fill="#ff2d9a" />
+      <circle cx="72" cy="18" r="9" fill="none" stroke="#ff6b1a" strokeWidth="1.6" />
       <circle cx="72" cy="18" r="1.4" fill="#f5e642" />
-      <path d="M32 22 C 40 8 52 10 58 18 C 64 8 70 22 78 14" fill="none" stroke="#9aa3ad" strokeWidth="1.4" />
-      <rect x="10" y="32" width="16" height="12" fill="#241018" stroke="#ff2d6a55" />
-      <rect x="42" y="36" width="14" height="12" fill="#2a1c28" stroke="#b8f54a44" />
-      <rect x="74" y="38" width="16" height="10" fill="#2a2418" stroke="#f5e64244" />
-      <rect x="76" y="64" width="16" height="12" fill="#2a2a20" stroke="#ff6b1a44" />
-      <rect x="58" y="4" width="2.2" height="14" fill="#3dfff3" fillOpacity="0.7" />
-      <circle cx="58" cy="54" r="5" fill="#0a0708" stroke="#ff2d6a66" />
-      <path d="M30 86 C 36 80 42 92 50 88" fill="none" stroke="#9aa3ad" strokeDasharray="1.5 1.2" />
+      <path d="M32 22 C 40 8 52 10 58 18 C 64 8 70 22 78 14" fill="none" stroke="#171310" strokeWidth="1.6" />
+      <rect x="10" y="32" width="16" height="12" fill="#ff2d9a" stroke="#171310" />
+      <rect x="42" y="36" width="14" height="12" fill="#f5e642" stroke="#171310" />
+      <rect x="74" y="38" width="16" height="10" fill="#3dfff3" stroke="#171310" />
+      <rect x="76" y="64" width="16" height="12" fill="#ff6b1a" stroke="#171310" />
+      <rect x="58" y="4" width="2.2" height="14" fill="#3dfff3" />
+      <circle cx="58" cy="54" r="5" fill="#171310" stroke="#ff2d9a" />
+      <path d="M30 86 C 36 80 42 92 50 88" fill="none" stroke="#171310" strokeDasharray="1.5 1.2" />
     </svg>
   );
 }

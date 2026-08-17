@@ -31,8 +31,9 @@ export const site = {
   name: "The Derelicts",
   shortName: "DERELICTS",
   tagline: "Scavenge. Invent. Fight. Survive.",
-  heroLines: ["SCAVENGE.", "INVENT.", "FIGHT.", "SURVIVE."],
+  heroLines: ["WELCOME TO", "PUNKTOWN."],
   franchise: "The world threw them away. They built a better one.",
+  secondaryLine: "Misfits. Geniuses. The future.",
   description:
     "The Derelicts is a multiplayer action game where gifted misfits scavenge abandoned civilization and turn junk into weapons, gadgets and machines.",
   url: resolveSiteUrl(),

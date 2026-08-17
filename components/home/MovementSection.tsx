@@ -21,12 +21,12 @@ function Strip({ hidden = false }: { hidden?: boolean }) {
 
 export function MovementSection() {
   return (
-    <section className="bg-char py-20 md:py-28">
+    <section className="scene-sunset py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <h2 className="page-title max-w-4xl text-[clamp(2.3rem,7vw,4.6rem)] text-paper">
           MOVE LIKE YOU BUILT THE PLACE.
         </h2>
-        <div className="mt-10 overflow-hidden border-y-4 border-black bg-ink">
+        <div className="mt-10 overflow-hidden border-y-4 border-black bg-[#171310]">
           <div className="flex min-w-max motion-safe:animate-ticker">
             <Strip />
             <Strip hidden />
