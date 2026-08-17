@@ -33,7 +33,7 @@ Drop files using the paths in `ASSET_MANIFEST.md`. Nothing here should be faked.
 
 ## URLs, credentials, and copy decisions
 
-- [ ] Set `NEXT_PUBLIC_SITE_URL` to the production origin before launch (canonicals, sitemap, and robots currently fall back to `http://localhost:3000`)
+- [ ] After the custom domain is live, set `NEXT_PUBLIC_SITE_URL` to that origin. Leave it unset (not blank) on Vercel until then so the deployment URL is used
 - [ ] Choose host/CDN and wire the production domain
 - [ ] Fill real social profile URLs in `data/socials.ts` (Discord, YouTube, TikTok, Instagram, X). Leave `null` until the account exists
 - [ ] Publish a contact address or form destination on `/contact`

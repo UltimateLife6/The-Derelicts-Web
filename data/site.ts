@@ -1,3 +1,32 @@
+function resolveSiteUrl() {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/^https?:\/\//, "")}`
+      : undefined,
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, "")}`
+      : undefined,
+    "http://localhost:3000",
+  ];
+
+  for (const candidate of candidates) {
+    const value = candidate?.trim();
+    if (!value) continue;
+    try {
+      return new URL(value).origin;
+    } catch {
+      try {
+        return new URL(`https://${value}`).origin;
+      } catch {
+        continue;
+      }
+    }
+  }
+
+  return "http://localhost:3000";
+}
+
 export const site = {
   name: "The Derelicts",
   shortName: "DERELICTS",
@@ -6,7 +35,7 @@ export const site = {
   franchise: "The world threw them away. They built a better one.",
   description:
     "The Derelicts is a multiplayer action game where gifted misfits scavenge abandoned civilization and turn junk into weapons, gadgets and machines.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: resolveSiteUrl(),
   metadata: {
     inDevelopment: "IN DEVELOPMENT",
     platform: "PC FIRST",
