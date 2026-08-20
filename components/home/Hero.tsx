@@ -1,7 +1,11 @@
 "use client";
 
+import { DistressedHeadline } from "@/components/brand/DistressedHeadline";
+import { PaintedButton, PaintedButtonLink } from "@/components/brand/PaintedButton";
+import { PaintStroke } from "@/components/brand/PaintStroke";
+import { PunkDivider } from "@/components/brand/PunkDivider";
 import { HeroMedia, useHasHeroKeyArt } from "@/components/home/HeroMedia";
-import { Button, ButtonLink } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { site } from "@/data/site";
 import { track } from "@/lib/analytics";
 import { resolvePublicAsset } from "@/lib/assets";
@@ -22,43 +26,65 @@ export function Hero() {
     return () => window.removeEventListener("keydown", onKey);
   }, [trailerOpen]);
 
-  return (
-    <section className="relative min-h-[100svh] overflow-hidden">
-      <HeroMedia />
-      {hasKeyArt ? null : <ParkSkyline />}
-      {hasKeyArt ? null : (
-        <div className="spark-field pointer-events-none absolute inset-0 hidden motion-reduce:hidden sm:block" />
-      )}
+  const franchiseParts = site.franchise.includes(". ")
+    ? site.franchise.split(". ").map((part, index, all) =>
+        index < all.length - 1 ? `${part}.` : part,
+      )
+    : [site.franchise];
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-end gap-6 px-4 pb-12 pt-24 md:px-6 md:pb-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-        <div className="type-scrim max-w-xl px-4 py-5 md:px-6 md:py-6">
-          <p className="brand-paint text-[clamp(2.4rem,8vw,4.4rem)]">THE DERELICTS</p>
-          <h1 className="page-title mt-3 text-[clamp(3rem,10vw,6.4rem)] text-paper">
-            {site.heroLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-5 max-w-lg font-mark text-2xl leading-tight text-volt md:text-3xl">
-            {site.franchise}
+  return (
+    <section className="relative min-h-[100svh]">
+      <div className="absolute inset-0 overflow-hidden">
+        <HeroMedia />
+        {hasKeyArt ? null : <ParkSkyline />}
+        {hasKeyArt ? null : (
+          <div className="spark-field pointer-events-none absolute inset-0 hidden motion-reduce:hidden sm:block" />
+        )}
+      </div>
+
+      <div className="pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-end md:block">
+        {/* Mobile: keep Spark + environmental PUNKTOWN sign clear before copy */}
+        <div
+          className="min-h-[52svh] shrink-0 sm:min-h-[48svh] md:hidden"
+          aria-hidden="true"
+        />
+
+        <div className="hero-copy-falloff pointer-events-auto w-full px-4 pb-6 pt-4 sm:px-5 md:absolute md:bottom-6 md:left-5 md:w-[min(20rem,30vw)] md:max-w-[20rem] md:px-0 md:pb-0 md:pt-0 lg:bottom-8 lg:left-7 lg:w-[min(22rem,28vw)] xl:left-9">
+          <p className="font-mark text-[clamp(0.9rem,1.4vw,1.1rem)] leading-none tracking-[0.04em] text-volt">
+            WELCOME TO
           </p>
-          <p className="mt-3 font-display text-xl tracking-[0.12em] text-paper md:text-2xl">
+
+          <DistressedHeadline className="mt-1 text-[clamp(2.2rem,5.5vw,3.8rem)]">
+            PUNKTOWN!
+          </DistressedHeadline>
+
+          <PaintStroke tone="pink" className="mt-1.5 md:mt-2" />
+
+          <p className="mt-4 max-w-[18rem] font-display text-[0.95rem] leading-snug tracking-[0.06em] text-paper md:mt-5 md:text-[1.05rem]">
+            <span className="block">{(franchiseParts[0] ?? site.franchise).toUpperCase()}</span>
+            <span className="mt-1 block text-volt">
+              {(franchiseParts[1] ?? "They built a better one.").toUpperCase()}
+            </span>
+          </p>
+
+          <PunkDivider className="mt-3 max-w-[16rem] md:mt-4" />
+
+          <p className="mt-2.5 font-display text-[10px] tracking-[0.22em] text-paper/45 md:text-[11px]">
             {site.secondaryLine.toUpperCase()}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-5">
+            <PaintedButtonLink
               href="/punktown"
-              variant="arcade"
-              className="min-h-12 min-w-48"
+              variant="yellow"
+              className="min-h-12 w-full px-5 py-3 text-base md:text-lg"
               onClick={() => track("hero_enter_punktown")}
             >
               ENTER PUNKTOWN
-            </ButtonLink>
-            <Button
-              variant="stencil"
-              className="min-h-12 min-w-48"
+            </PaintedButtonLink>
+            <PaintedButton
+              variant="ghost"
+              className="min-h-11 w-full px-4 py-2.5 text-sm md:text-base"
               onClick={() => {
                 track("trailer_click");
                 if (trailer?.kind === "video") {
@@ -68,21 +94,18 @@ export function Hero() {
                 }
               }}
             >
+              <span aria-hidden="true" className="text-[0.85em]">
+                ▶
+              </span>
               {trailer?.kind === "video" ? "WATCH TRAILER" : "TRAILER / COMING SOON"}
-            </Button>
+            </PaintedButton>
           </div>
+
           {trailerNote ? (
-            <p className="mt-3 font-mono text-xs tracking-[0.18em] text-hazard" role="status">
+            <p className="mt-2.5 font-mono text-xs tracking-[0.18em] text-hazard" role="status">
               TRANSMISSION PENDING — no footage is live yet.
             </p>
           ) : null}
-        </div>
-
-        <div className="hidden justify-self-end lg:block">
-          <p className="brand-paint neon-sign text-5xl motion-safe:animate-flicker">PUNKTOWN</p>
-          <p className="mt-2 max-w-xs text-sm text-paper">
-            Kids took the park. Then they wired it.
-          </p>
         </div>
       </div>
 

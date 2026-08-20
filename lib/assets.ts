@@ -19,9 +19,8 @@ export function fitClassName(fit: ImageFit) {
     case "body":
       return "object-cover object-[center_22%] sm:object-[center_28%]";
     case "hero":
-      // Punktown key art: kids + sign mid/low, sky high. Bias lower so faces and
-      // the PunkTown gate survive tall mobile and ultrawide crops.
-      return "object-cover object-[42%_58%] sm:object-[46%_52%] lg:object-[center_48%] 2xl:object-[center_45%]";
+      // Clean key art — keep Spark mid-left without dramatic horizontal shift.
+      return "object-cover object-[52%_45%]";
     case "landmark":
       return "object-cover object-center";
     case "wide":

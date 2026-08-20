@@ -8,11 +8,15 @@ import { useEffect, useState } from "react";
 
 export function HeroMedia() {
   const art = resolvePublicAsset(site.heroMedia.artwork);
+  const mobileArt = site.heroMedia.artworkMobile
+    ? resolvePublicAsset(site.heroMedia.artworkMobile)
+    : null;
   const poster = resolvePublicAsset(site.heroMedia.poster);
   const video = site.heroMedia.video
     ? resolvePublicAsset(site.heroMedia.video)
     : null;
   const [playVideo, setPlayVideo] = useState(false);
+  const [useMobileCrop, setUseMobileCrop] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia(
@@ -24,7 +28,18 @@ export function HeroMedia() {
     return () => query.removeEventListener("change", update);
   }, [video]);
 
-  const useKeyArt = art?.kind === "raster";
+  useEffect(() => {
+    if (!mobileArt || mobileArt.kind !== "raster") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setUseMobileCrop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, [mobileArt]);
+
+  const activeArt =
+    useMobileCrop && mobileArt?.kind === "raster" ? mobileArt : art;
+  const useKeyArt = activeArt?.kind === "raster";
   const posterSrc = poster?.kind === "raster" ? poster.src : undefined;
 
   return (
@@ -47,12 +62,12 @@ export function HeroMedia() {
         </video>
       ) : useKeyArt ? (
         <Image
-          src={art.src}
+          src={activeArt.src}
           alt=""
           fill
           priority
           sizes="100vw"
-          quality={80}
+          quality={82}
           className={fitClassName("hero")}
         />
       ) : (
@@ -63,5 +78,9 @@ export function HeroMedia() {
 }
 
 export function useHasHeroKeyArt() {
-  return resolvePublicAsset(site.heroMedia.artwork)?.kind === "raster";
+  const art = resolvePublicAsset(site.heroMedia.artwork);
+  const mobile = site.heroMedia.artworkMobile
+    ? resolvePublicAsset(site.heroMedia.artworkMobile)
+    : null;
+  return art?.kind === "raster" || mobile?.kind === "raster";
 }

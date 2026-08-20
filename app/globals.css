@@ -160,6 +160,115 @@ input:focus-visible,
   }
 }
 
+/* Hero copy — cinematic falloff only (no rectangular panel) */
+.hero-copy-falloff {
+  background: linear-gradient(
+    105deg,
+    rgba(12, 10, 8, 0.42) 0%,
+    rgba(12, 10, 8, 0.18) 42%,
+    rgba(12, 10, 8, 0.04) 72%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .hero-copy-falloff {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(12, 10, 8, 0.28) 18%,
+      rgba(12, 10, 8, 0.78) 100%
+    );
+  }
+}
+
+.painted-header {
+  min-height: 4.5rem;
+}
+
+.header-paint-fallback {
+  background:
+    radial-gradient(ellipse at 12% 40%, rgba(255, 45, 154, 0.18), transparent 28%),
+    radial-gradient(ellipse at 88% 55%, rgba(245, 230, 66, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(8, 6, 5, 0.92) 0%, rgba(8, 6, 5, 0.72) 58%, transparent 100%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 68%,
+    96% 78%,
+    90% 70%,
+    82% 82%,
+    74% 72%,
+    64% 86%,
+    54% 74%,
+    44% 88%,
+    34% 76%,
+    24% 90%,
+    14% 78%,
+    6% 86%,
+    0 74%
+  );
+}
+
+.painted-btn {
+  clip-path: polygon(
+    1% 6%,
+    4% 1%,
+    96% 2%,
+    100% 8%,
+    99% 92%,
+    96% 100%,
+    5% 98%,
+    0% 90%
+  );
+}
+
+.punk-nav-link {
+  position: relative;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.punk-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.3rem;
+  height: 3px;
+  background: var(--flare);
+  clip-path: polygon(0 40%, 12% 0, 88% 20%, 100% 0, 100% 100%, 0 80%);
+  opacity: 0;
+  transform: scaleX(0.4);
+  transform-origin: left center;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.punk-nav-link:hover {
+  color: var(--volt);
+  transform: translateY(-1px);
+}
+
+.punk-nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .punk-nav-link,
+  .punk-nav-link::after,
+  .painted-btn {
+    transition: none;
+  }
+
+  .punk-nav-link:hover {
+    transform: none;
+  }
+}
+
 .hero-sky {
   background:
     radial-gradient(ellipse at 78% 12%, rgba(255, 255, 255, 0.7), transparent 22%),

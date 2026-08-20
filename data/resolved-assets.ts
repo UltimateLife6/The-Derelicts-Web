@@ -7,7 +7,10 @@ export type ResolvedAsset = {
 
 export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/backgrounds/hero": { src: "/images/backgrounds/hero.webp", kind: "raster" },
-  "/images/brand/logo": { src: "/images/brand/logo.svg", kind: "svg" },
+  "/images/brand/header-paint": { src: "/images/brand/header-paint.webp", kind: "raster" },
+  "/images/brand/logo": { src: "/images/brand/logo.webp", kind: "raster" },
+  "/images/brand/paint-stroke-black": { src: "/images/brand/paint-stroke-black.svg", kind: "svg" },
+  "/images/brand/paint-stroke-pink": { src: "/images/brand/paint-stroke-pink.svg", kind: "svg" },
   "/images/characters/icebox": { src: "/images/characters/icebox.svg", kind: "svg" },
   "/images/characters/icebox-bg": { src: "/images/characters/icebox-bg.svg", kind: "svg" },
   "/images/characters/moldy": { src: "/images/characters/moldy.svg", kind: "svg" },
@@ -24,6 +27,8 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/characters/volt-bg": { src: "/images/characters/volt-bg.svg", kind: "svg" },
   "/images/characters/willow": { src: "/images/characters/willow.svg", kind: "svg" },
   "/images/characters/willow-bg": { src: "/images/characters/willow-bg.svg", kind: "svg" },
+  "/images/hero/punktown": { src: "/images/hero/punktown.webp", kind: "raster" },
+  "/images/hero/punktown-mobile": { src: "/images/hero/punktown-mobile.webp", kind: "raster" },
   "/images/inventions/boom-box": { src: "/images/inventions/boom-box.svg", kind: "svg" },
   "/images/inventions/junk-cannon": { src: "/images/inventions/junk-cannon.svg", kind: "svg" },
   "/images/inventions/magnet-gun": { src: "/images/inventions/magnet-gun.svg", kind: "svg" },

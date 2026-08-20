@@ -31,7 +31,7 @@ export const site = {
   name: "The Derelicts",
   shortName: "DERELICTS",
   tagline: "Scavenge. Invent. Fight. Survive.",
-  heroLines: ["WELCOME TO", "PUNKTOWN."],
+  heroLines: ["WELCOME TO", "PUNKTOWN!"],
   franchise: "The world threw them away. They built a better one.",
   secondaryLine: "Misfits. Geniuses. The future.",
   description:
@@ -56,9 +56,10 @@ export const site = {
     ],
   },
   heroMedia: {
-    artwork: "/images/backgrounds/hero",
+    artwork: "/images/hero/punktown",
+    artworkMobile: "/images/hero/punktown-mobile",
     video: "/video/hero-loop",
-    poster: "/images/backgrounds/hero",
+    poster: "/images/hero/punktown",
     trailer: "/video/trailer",
   },
 } as const;
