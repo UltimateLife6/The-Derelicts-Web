@@ -19,8 +19,8 @@ export function fitClassName(fit: ImageFit) {
     case "body":
       return "object-cover object-[center_22%] sm:object-[center_28%]";
     case "hero":
-      // Clean key art — keep Spark mid-left without dramatic horizontal shift.
-      return "object-cover object-[52%_45%]";
+      // hero2 key art — Spark sits left; bias slightly left of center for face + PUNKTOWN sign.
+      return "object-cover object-[42%_48%]";
     case "landmark":
       return "object-cover object-center";
     case "wide":
