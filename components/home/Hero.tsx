@@ -26,7 +26,9 @@ export function Hero() {
     <section className="relative min-h-[100svh] overflow-hidden">
       <HeroMedia />
       {hasKeyArt ? null : <ParkSkyline />}
-      <div className="spark-field pointer-events-none absolute inset-0 hidden motion-reduce:hidden sm:block" />
+      {hasKeyArt ? null : (
+        <div className="spark-field pointer-events-none absolute inset-0 hidden motion-reduce:hidden sm:block" />
+      )}
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl items-end gap-6 px-4 pb-12 pt-24 md:px-6 md:pb-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="type-scrim max-w-xl px-4 py-5 md:px-6 md:py-6">

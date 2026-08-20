@@ -52,7 +52,7 @@ export function HeroMedia() {
           fill
           priority
           sizes="100vw"
-          quality={75}
+          quality={80}
           className={fitClassName("hero")}
         />
       ) : (

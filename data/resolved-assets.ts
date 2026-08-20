@@ -6,7 +6,7 @@ export type ResolvedAsset = {
 };
 
 export const resolvedAssets: Record<string, ResolvedAsset> = {
-  "/images/backgrounds/hero": { src: "/images/backgrounds/hero.svg", kind: "svg" },
+  "/images/backgrounds/hero": { src: "/images/backgrounds/hero.webp", kind: "raster" },
   "/images/brand/logo": { src: "/images/brand/logo.svg", kind: "svg" },
   "/images/characters/icebox": { src: "/images/characters/icebox.svg", kind: "svg" },
   "/images/characters/icebox-bg": { src: "/images/characters/icebox-bg.svg", kind: "svg" },
