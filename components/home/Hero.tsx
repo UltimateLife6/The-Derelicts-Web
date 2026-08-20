@@ -45,46 +45,46 @@ export function Hero() {
       <div className="pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-end md:block">
         {/* Mobile: keep Spark + environmental PUNKTOWN sign clear before copy */}
         <div
-          className="min-h-[52svh] shrink-0 sm:min-h-[48svh] md:hidden"
+          className="min-h-[58svh] shrink-0 sm:min-h-[54svh] md:hidden"
           aria-hidden="true"
         />
 
-        <div className="hero-copy-falloff pointer-events-auto w-full px-4 pb-6 pt-4 sm:px-5 md:absolute md:bottom-6 md:left-5 md:w-[min(20rem,30vw)] md:max-w-[20rem] md:px-0 md:pb-0 md:pt-0 lg:bottom-8 lg:left-7 lg:w-[min(22rem,28vw)] xl:left-9">
+        <div className="hero-copy-falloff pointer-events-auto w-full px-4 pb-5 pt-3 sm:px-5 md:absolute md:bottom-4 md:left-3 md:w-[min(17.5rem,26vw)] md:max-w-[17.5rem] md:px-0 md:pb-0 md:pt-0 lg:bottom-5 lg:left-3.5 lg:w-[min(18.5rem,23vw)] xl:bottom-6 xl:left-4">
           <p className="font-mark text-[clamp(0.9rem,1.4vw,1.1rem)] leading-none tracking-[0.04em] text-volt">
             WELCOME TO
           </p>
 
-          <DistressedHeadline className="mt-1 text-[clamp(2.2rem,5.5vw,3.8rem)]">
+          <DistressedHeadline className="mt-0 text-[clamp(2.2rem,5.5vw,3.8rem)] leading-[0.82]">
             PUNKTOWN!
           </DistressedHeadline>
 
-          <PaintStroke tone="pink" className="mt-1.5 md:mt-2" />
+          <PaintStroke tone="pink" className="mt-0.5" />
 
-          <p className="mt-4 max-w-[18rem] font-display text-[0.95rem] leading-snug tracking-[0.06em] text-paper md:mt-5 md:text-[1.05rem]">
+          <p className="mt-2 max-w-[16.5rem] font-display text-[0.95rem] leading-snug tracking-[0.06em] text-paper md:mt-2.5 md:text-[1.05rem]">
             <span className="block">{(franchiseParts[0] ?? site.franchise).toUpperCase()}</span>
-            <span className="mt-1 block text-volt">
+            <span className="mt-0.5 block text-volt">
               {(franchiseParts[1] ?? "They built a better one.").toUpperCase()}
             </span>
           </p>
 
-          <PunkDivider className="mt-3 max-w-[16rem] md:mt-4" />
+          <PunkDivider className="mt-1.5 max-w-[14rem] md:mt-2" />
 
-          <p className="mt-2.5 font-display text-[10px] tracking-[0.22em] text-paper/45 md:text-[11px]">
+          <p className="mt-1 font-display text-[10px] tracking-[0.22em] text-paper/40 md:text-[11px]">
             {site.secondaryLine.toUpperCase()}
           </p>
 
-          <div className="mt-4 flex flex-col gap-2.5 sm:mt-5">
+          <div className="mt-2.5 flex flex-col items-start gap-1.5 sm:mt-3">
             <PaintedButtonLink
               href="/punktown"
               variant="yellow"
-              className="min-h-12 w-full px-5 py-3 text-base md:text-lg"
+              className="min-h-12 w-fit px-7 py-3 text-base md:px-8 md:text-lg"
               onClick={() => track("hero_enter_punktown")}
             >
               ENTER PUNKTOWN
             </PaintedButtonLink>
             <PaintedButton
               variant="ghost"
-              className="min-h-11 w-full px-4 py-2.5 text-sm md:text-base"
+              className="min-h-10 w-fit border-paper/55 bg-ink/25 px-4 py-2 text-sm tracking-[0.12em] text-paper/80 md:text-[0.95rem]"
               onClick={() => {
                 track("trailer_click");
                 if (trailer?.kind === "video") {
@@ -94,7 +94,7 @@ export function Hero() {
                 }
               }}
             >
-              <span aria-hidden="true" className="text-[0.85em]">
+              <span aria-hidden="true" className="text-[0.8em] opacity-80">
                 ▶
               </span>
               {trailer?.kind === "video" ? "WATCH TRAILER" : "TRAILER / COMING SOON"}

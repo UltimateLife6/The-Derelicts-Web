@@ -160,24 +160,31 @@ input:focus-visible,
   }
 }
 
-/* Hero copy — cinematic falloff only (no rectangular panel) */
+/* Hero copy — localized dark falloff only (no rectangular panel / no full-screen overlay) */
 .hero-copy-falloff {
-  background: linear-gradient(
-    105deg,
-    rgba(12, 10, 8, 0.42) 0%,
-    rgba(12, 10, 8, 0.18) 42%,
-    rgba(12, 10, 8, 0.04) 72%,
-    transparent 100%
-  );
+  padding: 0.95rem 1.05rem 1.2rem 0.65rem;
+  margin: -0.95rem -0.15rem -0.7rem -0.4rem;
+  background:
+    radial-gradient(
+      ellipse 100% 88% at 6% 84%,
+      rgba(8, 6, 5, 0.8) 0%,
+      rgba(8, 6, 5, 0.52) 30%,
+      rgba(8, 6, 5, 0.2) 54%,
+      rgba(8, 6, 5, 0.05) 70%,
+      transparent 84%
+    );
 }
 
 @media (max-width: 767px) {
   .hero-copy-falloff {
+    padding: 1.15rem 1rem 1.35rem;
+    margin: 0;
     background: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(12, 10, 8, 0.28) 18%,
-      rgba(12, 10, 8, 0.78) 100%
+      rgba(10, 8, 6, 0.18) 10%,
+      rgba(10, 8, 6, 0.55) 42%,
+      rgba(10, 8, 6, 0.84) 100%
     );
   }
 }
@@ -188,25 +195,25 @@ input:focus-visible,
 
 .header-paint-fallback {
   background:
-    radial-gradient(ellipse at 12% 40%, rgba(255, 45, 154, 0.18), transparent 28%),
-    radial-gradient(ellipse at 88% 55%, rgba(245, 230, 66, 0.12), transparent 24%),
-    linear-gradient(180deg, rgba(8, 6, 5, 0.92) 0%, rgba(8, 6, 5, 0.72) 58%, transparent 100%);
+    radial-gradient(ellipse at 12% 40%, rgba(255, 45, 154, 0.1), transparent 22%),
+    radial-gradient(ellipse at 88% 55%, rgba(245, 230, 66, 0.07), transparent 18%),
+    linear-gradient(180deg, rgba(8, 6, 5, 0.9) 0%, rgba(8, 6, 5, 0.62) 52%, transparent 100%);
   clip-path: polygon(
     0 0,
     100% 0,
-    100% 68%,
-    96% 78%,
-    90% 70%,
-    82% 82%,
-    74% 72%,
-    64% 86%,
-    54% 74%,
-    44% 88%,
-    34% 76%,
-    24% 90%,
-    14% 78%,
-    6% 86%,
-    0 74%
+    100% 58%,
+    96% 68%,
+    90% 60%,
+    82% 72%,
+    74% 62%,
+    64% 76%,
+    54% 64%,
+    44% 78%,
+    34% 66%,
+    24% 80%,
+    14% 68%,
+    6% 76%,
+    0 64%
   );
 }
 

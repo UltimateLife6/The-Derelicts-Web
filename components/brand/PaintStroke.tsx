@@ -24,7 +24,7 @@ export function PaintStroke({
       aria-hidden={decorative ? true : undefined}
       className={cn(
         "pointer-events-none select-none",
-        tone === "pink" && "h-3 w-[min(100%,14rem)] object-fill md:h-3.5 md:w-[16rem]",
+        tone === "pink" && "h-2.5 w-[min(100%,12.5rem)] object-fill md:h-3 md:w-[13.5rem]",
         tone === "black" && "h-full w-full object-cover object-top",
         className,
       )}

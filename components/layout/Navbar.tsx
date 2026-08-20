@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 w-full">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[5.5rem] min-[900px]:h-[6.25rem]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[4.1rem] min-[900px]:h-[4.75rem]">
         {headerPaint?.kind === "raster" ? (
           <Image
             src={headerPaint.src}
@@ -29,7 +29,7 @@ export function Navbar() {
             priority={onHome}
             sizes="100vw"
             quality={90}
-            className="object-cover object-top"
+            className="object-cover object-[center_12%] opacity-90 [mask-image:linear-gradient(180deg,#000_0%,#000_55%,rgba(0,0,0,0.4)_74%,transparent_100%)]"
             draggable={false}
           />
         ) : (
@@ -37,8 +37,8 @@ export function Navbar() {
         )}
       </div>
 
-      <div className="pointer-events-auto relative mx-auto grid min-h-24 w-[min(100%-1.25rem,90rem)] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-2 py-3 min-[900px]:gap-4 min-[900px]:px-3 min-[1100px]:gap-6 min-[1100px]:px-4 sm:w-[min(100%-1.75rem,90rem)]">
-        <DerelictsLogo priority={onHome} className="min-w-0" />
+      <div className="pointer-events-auto relative mx-auto grid min-h-[5.1rem] w-[min(100%-1.75rem,90rem)] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-3.5 pb-2.5 pt-5 min-[900px]:min-h-[5.6rem] min-[900px]:gap-4 min-[900px]:px-5 min-[900px]:pt-6 min-[1100px]:gap-6 min-[1100px]:px-6 sm:w-[min(100%-2.25rem,90rem)]">
+        <DerelictsLogo priority={onHome} className="min-w-0 pl-1 min-[900px]:pl-1.5" />
 
         <nav
           className="hidden min-w-0 items-center justify-center gap-1.5 overflow-visible min-[900px]:flex min-[1024px]:gap-2.5 min-[1100px]:gap-3 xl:gap-4"
