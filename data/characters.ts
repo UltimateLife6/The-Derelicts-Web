@@ -36,8 +36,8 @@ export const characters: Character[] = [
     hook: "EVERYTHING LEAKS.",
     description:
       "Moldy turns spoiled fountains, rusted tanks, and carnival food chemicals into toxins, traps, and ugly little miracles of area denial.",
-    portrait: "/images/characters/moldy.svg",
-    backgroundImage: "/images/characters/moldy-bg.svg",
+    portrait: "/images/characters/moldy",
+    backgroundImage: "/images/characters/moldy-bg",
     passive: {
       name: "SPOIL SENSE",
       description: "Chemical sources in the environment mark themselves.",

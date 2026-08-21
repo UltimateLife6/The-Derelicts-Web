@@ -13,7 +13,7 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/brand/paint-stroke-pink": { src: "/images/brand/paint-stroke-pink.svg", kind: "svg" },
   "/images/characters/icebox": { src: "/images/characters/icebox.svg", kind: "svg" },
   "/images/characters/icebox-bg": { src: "/images/characters/icebox-bg.svg", kind: "svg" },
-  "/images/characters/moldy": { src: "/images/characters/moldy.svg", kind: "svg" },
+  "/images/characters/moldy": { src: "/images/characters/moldy.webp", kind: "raster" },
   "/images/characters/moldy-bg": { src: "/images/characters/moldy-bg.svg", kind: "svg" },
   "/images/characters/packet": { src: "/images/characters/packet.svg", kind: "svg" },
   "/images/characters/packet-bg": { src: "/images/characters/packet-bg.svg", kind: "svg" },
