@@ -38,7 +38,11 @@ export function CharacterCard({
         alt={`${character.name}, ${character.specialty}`}
         accent={character.color}
         fit="body"
-        className={featured ? "aspect-[3/4] min-h-80" : "aspect-[3/4] min-h-72"}
+        className={
+          featured
+            ? "aspect-[3/4] min-h-80 !bg-ink"
+            : "aspect-[3/4] min-h-72 !bg-ink"
+        }
       />
       <div className="absolute inset-x-1.5 bottom-1.5 z-20 bg-gradient-to-t from-black via-black/70 to-transparent p-3 pt-16 text-paper">
         <h3 className="display text-4xl md:text-5xl">{character.name}</h3>

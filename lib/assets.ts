@@ -17,7 +17,8 @@ export function fitClassName(fit: ImageFit) {
     case "face":
       return "object-cover object-[center_16%] sm:object-[center_18%]";
     case "body":
-      return "object-cover object-[center_22%] sm:object-[center_28%]";
+      // Roster portraits — fill the media frame edge-to-edge; crop to face + upper body.
+      return "h-full w-full object-cover object-[50%_35%]";
     case "hero":
       // hero2 key art — Spark sits left; bias slightly left of center for face + PUNKTOWN sign.
       return "object-cover object-[42%_48%]";
@@ -58,7 +59,7 @@ export function inferFit(src: string): ImageFit {
   if (path.includes("/inventions/")) return "silhouette";
   if (path.includes("/characters/") && path.endsWith("-bg")) return "landmark";
   if (path.includes("/characters/") && path.endsWith("-full")) return "body";
-  if (path.includes("/characters/")) return "face";
+  if (path.includes("/characters/")) return "body";
   if (path.includes("/components/") || path.includes("/graffiti/")) return "silhouette";
   if (path.includes("/punktown/")) return "landmark";
   if (path.includes("/news/") || path.includes("/media/")) return "wide";
