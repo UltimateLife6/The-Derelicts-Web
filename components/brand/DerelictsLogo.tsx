@@ -15,7 +15,7 @@ export function DerelictsLogo({
   const logo = resolvePublicAsset("/images/brand/logo");
 
   const markClass =
-    "h-auto w-[clamp(9rem,24vw,10.5rem)] object-contain object-left min-[900px]:w-[clamp(10rem,14vw,15rem)] min-[1100px]:w-[clamp(11.25rem,17vw,17.5rem)]";
+    "h-auto max-h-[3.25rem] w-[clamp(9rem,22vw,10.5rem)] object-contain object-left min-[900px]:max-h-[4.25rem] min-[900px]:w-[clamp(11.875rem,16vw,16.25rem)]";
 
   const content =
     logo?.kind === "raster" ? (
@@ -25,7 +25,7 @@ export function DerelictsLogo({
         width={560}
         height={230}
         priority={priority}
-        sizes="(max-width: 899px) 168px, (max-width: 1099px) 200px, clamp(180px, 17vw, 280px)"
+        sizes="(max-width: 899px) 168px, clamp(190px, 16vw, 260px)"
         className={markClass}
       />
     ) : logo?.kind === "svg" ? (

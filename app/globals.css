@@ -189,34 +189,6 @@ input:focus-visible,
   }
 }
 
-.painted-header {
-  min-height: 4.5rem;
-}
-
-.header-paint-fallback {
-  background:
-    radial-gradient(ellipse at 12% 40%, rgba(255, 45, 154, 0.1), transparent 22%),
-    radial-gradient(ellipse at 88% 55%, rgba(245, 230, 66, 0.07), transparent 18%),
-    linear-gradient(180deg, rgba(8, 6, 5, 0.9) 0%, rgba(8, 6, 5, 0.62) 52%, transparent 100%);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 58%,
-    96% 68%,
-    90% 60%,
-    82% 72%,
-    74% 62%,
-    64% 76%,
-    54% 64%,
-    44% 78%,
-    34% 66%,
-    24% 80%,
-    14% 68%,
-    6% 76%,
-    0 64%
-  );
-}
-
 .painted-btn {
   clip-path: polygon(
     1% 6%,
@@ -551,5 +523,5 @@ input:focus-visible,
 }
 
 .hash-anchor {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 6.5rem;
 }
