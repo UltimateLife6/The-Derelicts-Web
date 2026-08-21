@@ -21,7 +21,7 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/characters/ratchet-bg": { src: "/images/characters/ratchet-bg.svg", kind: "svg" },
   "/images/characters/scraps": { src: "/images/characters/scraps.svg", kind: "svg" },
   "/images/characters/scraps-bg": { src: "/images/characters/scraps-bg.svg", kind: "svg" },
-  "/images/characters/spark": { src: "/images/characters/spark.svg", kind: "svg" },
+  "/images/characters/spark": { src: "/images/characters/spark.webp", kind: "raster" },
   "/images/characters/spark-bg": { src: "/images/characters/spark-bg.svg", kind: "svg" },
   "/images/characters/volt": { src: "/images/characters/volt.svg", kind: "svg" },
   "/images/characters/volt-bg": { src: "/images/characters/volt-bg.svg", kind: "svg" },

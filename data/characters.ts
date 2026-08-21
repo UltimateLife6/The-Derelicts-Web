@@ -9,8 +9,8 @@ export const characters: Character[] = [
     hook: "BUILDS MACHINES FASTER.",
     description:
       "Spark reads wreckage like a language. Machines come together faster in her hands because she already sees how the junk wants to be used.",
-    portrait: "/images/characters/spark.svg",
-    backgroundImage: "/images/characters/spark-bg.svg",
+    portrait: "/images/characters/spark",
+    backgroundImage: "/images/characters/spark-bg",
     passive: {
       name: "BLUEPRINT EYE",
       description: "Salvaged machines reveal extra usable parts.",
