@@ -90,8 +90,8 @@ export const characters: Character[] = [
     hook: "SHE INTERRUPTS THE POWER.",
     description:
       "Volt treats electricity like a tool, a weapon, and a warning. If a circuit still hums, she can steal it, snap it, or turn it against whoever wired it first.",
-    portrait: "/images/characters/volt.svg",
-    backgroundImage: "/images/characters/volt-bg.svg",
+    portrait: "/images/characters/volt",
+    backgroundImage: "/images/characters/volt-bg",
     passive: {
       name: "LIVE WIRE",
       description: "Electrical components provide additional crafting resources.",
@@ -118,8 +118,8 @@ export const characters: Character[] = [
     hook: "DOORS ARE OPINIONS.",
     description:
       "Packet talks to cameras, doors, and leftover networks like they never got the chance to become obsolete. Most of Punktown still listens.",
-    portrait: "/images/characters/packet.svg",
-    backgroundImage: "/images/characters/packet-bg.svg",
+    portrait: "/images/characters/packet",
+    backgroundImage: "/images/characters/packet-bg",
     passive: {
       name: "GHOST PING",
       description: "Nearby cameras and locked panels reveal themselves.",
@@ -145,8 +145,8 @@ export const characters: Character[] = [
     hook: "THE STUPID IDEA WORKS.",
     description:
       "Scraps combines parts nobody else would risk. Experimental recipes, unstable machines, and inventions that should not function — until they do.",
-    portrait: "/images/characters/scraps.svg",
-    backgroundImage: "/images/characters/scraps-bg.svg",
+    portrait: "/images/characters/scraps",
+    backgroundImage: "/images/characters/scraps-bg",
     passive: {
       name: "JUNK LUCK",
       description: "Small chance to discover an unexpected extra component.",
@@ -172,8 +172,8 @@ export const characters: Character[] = [
     hook: "THE PARK STILL HAS A PULSE.",
     description:
       "Willow works with the animals that stayed after the lights died. They scout, warn, and find paths through Punktown that maps still miss.",
-    portrait: "/images/characters/willow.svg",
-    backgroundImage: "/images/characters/willow-bg.svg",
+    portrait: "/images/characters/willow",
+    backgroundImage: "/images/characters/willow-bg",
     passive: {
       name: "PACK SIGHT",
       description: "Wildlife marks nearby scavengers and hidden routes.",
