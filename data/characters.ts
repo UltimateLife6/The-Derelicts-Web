@@ -63,8 +63,8 @@ export const characters: Character[] = [
     hook: "IF IT HAS WHEELS.",
     description:
       "Ratchet lives in the gap between vehicles, robots, and armor. She would rather rebuild a wreck than walk past it.",
-    portrait: "/images/characters/ratchet.svg",
-    backgroundImage: "/images/characters/ratchet-bg.svg",
+    portrait: "/images/characters/ratchet",
+    backgroundImage: "/images/characters/ratchet-bg",
     passive: {
       name: "GREASE MONKEY",
       description: "Vehicle and armor components last longer before they fall apart.",
