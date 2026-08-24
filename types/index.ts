@@ -56,6 +56,7 @@ export type Location = {
   name: string;
   slug: string;
   description: string;
+  blurb: string;
   image: string;
   componentCategories: string[];
   hazards?: string[];

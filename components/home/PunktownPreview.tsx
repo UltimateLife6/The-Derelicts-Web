@@ -16,7 +16,11 @@ export function PunktownPreview() {
         <div className="mt-10">
           <PunktownMap />
         </div>
-        <ButtonLink href="/punktown" variant="ghost" className="mt-8 border-ink text-ink hover:border-magenta hover:text-magenta">
+        <ButtonLink
+          href="/punktown"
+          variant="ghost"
+          className="mt-8 border-ink text-ink hover:border-magenta hover:text-magenta"
+        >
           EXPLORE PUNKTOWN →
         </ButtonLink>
       </div>
