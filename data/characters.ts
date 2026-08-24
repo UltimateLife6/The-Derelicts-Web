@@ -199,8 +199,8 @@ export const characters: Character[] = [
     hook: "STAND BEHIND THE FRIDGE.",
     description:
       "Icebox builds protection out of vending hulks, freezer doors, and anything too heavy to ignore. Crews last longer when Icebox decides they should.",
-    portrait: "/images/characters/icebox.svg",
-    backgroundImage: "/images/characters/icebox-bg.svg",
+    portrait: "/images/characters/icebox",
+    backgroundImage: "/images/characters/icebox-bg",
     passive: {
       name: "HARD SHELL",
       description: "Defensive inventions absorb additional punishment.",

@@ -4,7 +4,7 @@ import { LocationMarker } from "@/components/punktown/LocationMarker";
 import { LocationPanel } from "@/components/punktown/LocationPanel";
 import { locations } from "@/data/locations";
 import { track } from "@/lib/analytics";
-import { fitClassName, resolvePublicAsset } from "@/lib/assets";
+import { resolvePublicAsset } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
@@ -12,6 +12,8 @@ import { useState } from "react";
 export function PunktownMap() {
   const [activeId, setActiveId] = useState(locations[0]?.id ?? "");
   const active = locations.find((location) => location.id === activeId) ?? locations[0];
+  const overview = resolvePublicAsset("/images/punktown/overview");
+  const hasOverview = overview?.kind === "raster";
 
   function select(id: string, slug: string) {
     setActiveId(id);
@@ -20,25 +22,35 @@ export function PunktownMap() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
-      <div className="relative min-h-[340px] overflow-hidden border-4 border-black bg-[#152016] shadow-[8px_10px_0_#000] md:min-h-[520px]">
-        <MapBackdrop />
-        {locations.map((location) => (
-          <LocationMarker
-            key={location.id}
-            name={location.name}
-            x={location.x}
-            y={location.y}
-            active={location.id === activeId}
-            onSelect={() => select(location.id, location.slug)}
-          />
-        ))}
+      <div
+        className={cn(
+          "relative overflow-hidden border-4 border-black bg-[#152016] shadow-[8px_10px_0_#000]",
+          hasOverview
+            ? "aspect-[3/2] min-h-0"
+            : "min-h-[340px] md:min-h-[520px]",
+        )}
+      >
+        <MapBackdrop overview={overview} />
+        {/* Overview art already includes districts, legend, and POIs — skip misplaced pins */}
+        {hasOverview
+          ? null
+          : locations.map((location) => (
+              <LocationMarker
+                key={location.id}
+                name={location.name}
+                x={location.x}
+                y={location.y}
+                active={location.id === activeId}
+                onSelect={() => select(location.id, location.slug)}
+              />
+            ))}
       </div>
 
-      <div className="lg:hidden">
+      <div className={cn(hasOverview ? "block" : "lg:hidden")}>
         <p className="mb-3 font-mono text-[11px] tracking-[0.22em] text-volt">
           LOCATIONS
         </p>
-        <div className="flex gap-2 overflow-x-auto pb-2 hide-scroll">
+        <div className="flex gap-2 overflow-x-auto pb-2 hide-scroll lg:flex-wrap">
           {locations.map((location) => (
             <button
               key={`card-${location.id}`}
@@ -61,17 +73,21 @@ export function PunktownMap() {
   );
 }
 
-function MapBackdrop() {
-  const overview = resolvePublicAsset("/images/punktown/overview");
+function MapBackdrop({
+  overview,
+}: {
+  overview: ReturnType<typeof resolvePublicAsset>;
+}) {
   if (overview?.kind === "raster") {
     return (
       <Image
         src={overview.src}
-        alt=""
+        alt="Punktown overview map"
         fill
         sizes="(max-width: 1024px) 100vw, 70vw"
-        quality={75}
-        className={fitClassName("landmark")}
+        quality={85}
+        className="object-contain object-center"
+        priority
       />
     );
   }
