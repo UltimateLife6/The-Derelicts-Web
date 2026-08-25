@@ -1,24 +1,12 @@
 "use client";
 
 import { LocationPanel } from "@/components/punktown/LocationPanel";
+import { PunktownMap } from "@/components/punktown/PunktownMap";
 import { locations } from "@/data/locations";
 import { track } from "@/lib/analytics";
-import { resolvePublicAsset } from "@/lib/assets";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-
-const DISTRICT_STICKERS = [
-  { id: "stacks", label: "THE STACKS", color: "#9b4dff", top: "18%", left: "28%" },
-  { id: "pit", label: "THE PIT", color: "#e11d48", top: "22%", left: "48%" },
-  { id: "furnace", label: "THE FURNACE", color: "#ff6b1a", top: "26%", left: "68%" },
-  { id: "scrap-market", label: "SCRAP MARKET", color: "#7cff3a", top: "48%", left: "24%" },
-  { id: "gutter", label: "GUTTER WAY", color: "#f5e642", top: "46%", left: "62%" },
-  { id: "garage", label: "DERELICTS' GARAGE", color: "#3d9bff", top: "62%", left: "44%" },
-  { id: "docks", label: "OLD DOCKS", color: "#3dfff3", top: "72%", left: "70%" },
-  { id: "gate", label: "MAIN GATE", color: "#f0e2c4", top: "84%", left: "48%" },
-] as const;
 
 const FACT_CARDS = [
   {
@@ -75,12 +63,10 @@ const LOCATION_ICONS: Record<string, string> = {
 
 export function PunktownWorld() {
   const [activeId, setActiveId] = useState("trash-mountain");
-  const [zoom, setZoom] = useState(1);
   const active = useMemo(
     () => locations.find((location) => location.id === activeId) ?? locations[0],
     [activeId],
   );
-  const overview = resolvePublicAsset("/images/punktown/overview");
 
   function select(id: string, slug: string) {
     setActiveId(id);
@@ -90,12 +76,7 @@ export function PunktownWorld() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.65fr_0.9fr] lg:grid-rows-[auto_auto] lg:items-start lg:gap-x-7 lg:gap-y-5">
       <div className="order-1 min-w-0 lg:order-none lg:col-start-1 lg:row-start-1">
-        <MapStage
-          overviewSrc={overview?.kind === "raster" ? overview.src : null}
-          zoom={zoom}
-          onZoomIn={() => setZoom((value) => Math.min(1.55, Number((value + 0.15).toFixed(2))))}
-          onZoomOut={() => setZoom((value) => Math.max(1, Number((value - 0.15).toFixed(2))))}
-        />
+        <PunktownMap mode="interactive" priority />
       </div>
 
       <div className="order-2 space-y-5 lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1">
@@ -106,92 +87,6 @@ export function PunktownWorld() {
 
       <div className="order-3 min-w-0 lg:order-none lg:col-start-1 lg:row-start-2">
         <FactStrip />
-      </div>
-    </div>
-  );
-}
-
-function MapStage({
-  overviewSrc,
-  zoom,
-  onZoomIn,
-  onZoomOut,
-}: {
-  overviewSrc: string | null;
-  zoom: number;
-  onZoomIn: () => void;
-  onZoomOut: () => void;
-}) {
-  return (
-    <div className="relative overflow-hidden border-[3px] border-black bg-[#1a2218] shadow-[8px_10px_0_#000]">
-      <div className="relative aspect-[3/2] w-full overflow-hidden">
-        <div
-          className="absolute inset-0 origin-center transition-transform duration-200"
-          style={{ transform: `scale(${zoom})` }}
-        >
-          {overviewSrc ? (
-            <Image
-              src={overviewSrc}
-              alt="Punktown overview map"
-              fill
-              sizes="(max-width: 1024px) 100vw, 65vw"
-              quality={90}
-              priority
-              className="object-contain object-center"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center bg-[#243028] font-mono text-xs tracking-[0.2em] text-volt">
-              MAP SIGNAL PENDING
-            </div>
-          )}
-        </div>
-
-        {DISTRICT_STICKERS.map((sticker) => (
-          <span
-            key={sticker.id}
-            className="pointer-events-none absolute z-10 max-w-[9.5rem] -translate-x-1/2 -translate-y-1/2 rotate-[-2deg] border-2 border-black px-2 py-1 font-display text-[0.7rem] leading-none tracking-[0.08em] text-ink shadow-[3px_3px_0_#000] sm:text-[0.8rem] md:max-w-none md:px-2.5 md:py-1.5 md:text-[0.95rem]"
-            style={{
-              top: sticker.top,
-              left: sticker.left,
-              background: sticker.color,
-            }}
-          >
-            {sticker.label}
-          </span>
-        ))}
-
-        <div className="absolute left-3 top-3 z-20 flex flex-col overflow-hidden border-2 border-black bg-paper shadow-[3px_3px_0_#000]">
-          <button
-            type="button"
-            className="min-h-10 min-w-10 border-b-2 border-black font-display text-xl text-ink hover:bg-volt"
-            aria-label="Zoom in"
-            onClick={onZoomIn}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            className="min-h-10 min-w-10 font-display text-xl text-ink hover:bg-volt"
-            aria-label="Zoom out"
-            onClick={onZoomOut}
-          >
-            −
-          </button>
-        </div>
-
-        <div
-          className="pointer-events-none absolute bottom-3 left-3 z-20 flex h-14 w-14 items-center justify-center border-2 border-black bg-paper/90 shadow-[3px_3px_0_#000]"
-          aria-hidden="true"
-        >
-          <svg viewBox="0 0 48 48" className="h-10 w-10">
-            <circle cx="24" cy="24" r="18" fill="none" stroke="#171310" strokeWidth="2" />
-            <path d="M24 8 L28 24 L24 22 L20 24 Z" fill="#e11d48" />
-            <path d="M24 40 L20 24 L24 26 L28 24 Z" fill="#171310" />
-            <text x="24" y="7" textAnchor="middle" fontSize="6" fontFamily="monospace" fill="#171310">
-              N
-            </text>
-          </svg>
-        </div>
       </div>
     </div>
   );

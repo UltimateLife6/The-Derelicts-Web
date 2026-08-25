@@ -1,0 +1,68 @@
+export const PUNKTOWN_DISTRICT_STICKERS = [
+  {
+    id: "stacks",
+    label: "THE STACKS",
+    color: "#9b4dff",
+    top: "18%",
+    left: "28%",
+    priority: "primary",
+  },
+  {
+    id: "pit",
+    label: "THE PIT",
+    color: "#e11d48",
+    top: "22%",
+    left: "48%",
+    priority: "primary",
+  },
+  {
+    id: "furnace",
+    label: "THE FURNACE",
+    color: "#ff6b1a",
+    top: "26%",
+    left: "68%",
+    priority: "primary",
+  },
+  {
+    id: "scrap-market",
+    label: "SCRAP MARKET",
+    color: "#7cff3a",
+    top: "48%",
+    left: "24%",
+    priority: "primary",
+  },
+  {
+    id: "gutter",
+    label: "GUTTER WAY",
+    color: "#f5e642",
+    top: "46%",
+    left: "62%",
+    priority: "primary",
+  },
+  {
+    id: "garage",
+    label: "DERELICTS' GARAGE",
+    color: "#3d9bff",
+    top: "62%",
+    left: "44%",
+    priority: "primary",
+  },
+  {
+    id: "docks",
+    label: "OLD DOCKS",
+    color: "#3dfff3",
+    top: "72%",
+    left: "70%",
+    priority: "secondary",
+  },
+  {
+    id: "gate",
+    label: "MAIN GATE",
+    color: "#f0e2c4",
+    top: "84%",
+    left: "48%",
+    priority: "secondary",
+  },
+] as const;
+
+export type PunktownDistrictSticker = (typeof PUNKTOWN_DISTRICT_STICKERS)[number];
