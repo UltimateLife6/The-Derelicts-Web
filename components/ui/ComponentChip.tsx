@@ -25,8 +25,8 @@ export function ComponentChip({
           src={image!}
           alt=""
           fit="silhouette"
-          sizes="40px"
-          className="h-10 w-10 bg-transparent"
+          sizes="72px"
+          className="h-16 w-16 shrink-0 bg-[#111]"
         />
       ) : null}
       <span className="font-display text-sm tracking-[0.08em] uppercase">{label}</span>

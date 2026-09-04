@@ -20,7 +20,7 @@ export const inventions: Invention[] = [
       "An electrified melee weapon assembled from scavenged electrical components.",
     status: "prototype",
     componentIds: ["battery", "pipe", "capacitor"],
-    image: "/images/inventions/tesla-bat.svg",
+    image: "/images/inventions/tesla-bat",
   },
   {
     id: "microwave-drone",

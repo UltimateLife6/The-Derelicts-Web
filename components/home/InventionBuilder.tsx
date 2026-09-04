@@ -160,10 +160,10 @@ export function InventionBuilder() {
                 <div className="motion-safe:animate-assemble">
                   <GameImage
                     src={recipe.image}
-                    alt={`${recipe.name} silhouette`}
+                    alt={`${recipe.name} invention art`}
                     fit="silhouette"
-                    sizes="(max-width: 768px) 70vw, 360px"
-                    className="mx-auto aspect-square w-full max-w-sm border-4 border-black bg-[#2c261e]"
+                    sizes="(max-width: 768px) 90vw, 420px"
+                    className="mx-auto aspect-[2/3] w-full max-w-md border-4 border-black bg-[#111]"
                   />
                   <p className="mt-4 text-center font-mark text-xl text-magenta">RESULT</p>
                   <h3 className="display mt-1 text-center text-5xl text-volt md:text-7xl">
