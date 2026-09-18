@@ -28,6 +28,8 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/characters/willow": { src: "/images/characters/willow.webp", kind: "raster" },
   "/images/characters/willow-bg": { src: "/images/characters/willow-bg.svg", kind: "svg" },
   "/images/components/battery": { src: "/images/components/battery.webp", kind: "raster" },
+  "/images/components/capacitor": { src: "/images/components/capacitor.webp", kind: "raster" },
+  "/images/components/pipe": { src: "/images/components/pipe.webp", kind: "raster" },
   "/images/hero/punktown": { src: "/images/hero/punktown.webp", kind: "raster" },
   "/images/hero/punktown-mobile": { src: "/images/hero/punktown-mobile.webp", kind: "raster" },
   "/images/inventions/boom-box": { src: "/images/inventions/boom-box.svg", kind: "svg" },
