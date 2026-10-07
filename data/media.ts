@@ -1,17 +1,3 @@
-export const movementClips = [
-  { id: "sprinting", caption: "SPRINTING" },
-  { id: "sliding", caption: "SLIDING" },
-  { id: "mantling", caption: "MANTLING" },
-  { id: "vaulting", caption: "VAULTING" },
-  { id: "climbing", caption: "CLIMBING" },
-  { id: "ziplines", caption: "ZIPLINES" },
-  { id: "grind-rails", caption: "GRIND RAILS" },
-  { id: "jump-pads", caption: "JUMP PADS" },
-  { id: "shopping-carts", caption: "SHOPPING CARTS" },
-  { id: "improvised-bikes", caption: "IMPROVISED BIKES" },
-  { id: "launchers", caption: "LAUNCHERS" },
-] as const;
-
 export const pressDownloadSlots = [
   {
     id: "logo",

@@ -202,19 +202,24 @@ Component ids: `battery`, `pipe`, `capacitor`, `drone`, `microwave`, `shopping-c
 - **Appears in:** `components/home/HeroMedia.tsx`
 - **Notes:** Always ship `hero.webp` as the poster/fallback before enabling the loop.
 
-### Gameplay / movement media
+### Movement showcase (homepage “MOVE LIKE YOU BUILT THE PLACE.”)
 
-Stills: `public/images/media/movement/{id}.webp`  
-Loops: `public/video/gameplay/{id}.webm`
+Abilities, copy, and paths live in `data/movement.ts`. Rendered by `components/home/MovementSection.tsx`. Each slot uses the video if one exists, otherwise the still, otherwise a branded **FOOTAGE PENDING** panel that shows the missing filename. **No files exist yet.**
 
-Clip ids: `sprinting`, `sliding`, `mantling`, `vaulting`, `climbing`, `ziplines`, `grind-rails`, `jump-pads`, `shopping-carts`, `improvised-bikes`, `launchers`.
+| Ability | Still | Clip (optional) |
+| --- | --- | --- |
+| Sprinting | `public/images/movement/sprinting.webp` | `public/video/movement/sprinting.webm` or `.mp4` |
+| Sliding | `public/images/movement/sliding.webp` | `public/video/movement/sliding.webm` or `.mp4` |
+| Mantling | `public/images/movement/mantling.webp` | `public/video/movement/mantling.webm` or `.mp4` |
+| Vaulting | `public/images/movement/vaulting.webp` | `public/video/movement/vaulting.webm` or `.mp4` |
+| Climbing | `public/images/movement/climbing.webp` | `public/video/movement/climbing.webm` or `.mp4` |
+| Ziplining | `public/images/movement/ziplining.webp` | `public/video/movement/ziplining.webm` or `.mp4` |
 
-- **Aspect ratio:** 3:4 (strip cards)
-- **Recommended still:** 720×960
-- **Recommended loop:** 720×960 or 1080×1440, muted, a few seconds, under ~4MB each
-- **Purpose:** Homepage movement ticker (`MovementSection` + `MediaPlaceholder`)
-- **Crop notes:** Full-body motion in the center. Faces and vehicle silhouettes must survive a 3:4 cover crop.
-- **Notes:** Video is desktop-only and motion-safe. Empty slots show the branded **CLIP SLOT** label. No files exist yet.
+- **Aspect ratio:** 16:9. Phones show the same file in a 4:3 cover crop.
+- **Still:** WebP, 1920×1080, under ~250KB. Must be real gameplay captures or approved 3D renders, never concept stand-ins presented as gameplay.
+- **Clip:** WebM (VP9/AV1) and/or MP4 (H.264), 1920×1080 (1280×720 acceptable), muted, seamless loop of 4–8 seconds, under ~4MB. Always ship the matching still as the poster.
+- **Crop notes:** Keep the character and the movement action (ledge, rail, zipline, obstacle) in the center 70% width and the upper 65% height. The bottom third sits under the ability title and description.
+- **Playback:** Only the selected ability plays, only while the preview is on screen, muted, inline, and looping. With `prefers-reduced-motion: reduce`, clips never play and the still shows instead.
 
 ---
 

@@ -27,7 +27,7 @@ Drop files using the paths in `ASSET_MANIFEST.md`. Nothing here should be faked.
 
 - [ ] Trailer file (`public/video/trailer.webm` or `.mp4`) — or a later decision to use a real host URL instead of a self-hosted file
 - [ ] Optional muted hero loop (`public/video/hero-loop.webm`) only after key art exists
-- [ ] Movement stills and/or desktop loops for the eleven clip ids in `data/media.ts`
+- [ ] Movement stills and optional loops for the six abilities in `data/movement.ts` (see `ASSET_MANIFEST.md`)
 - [ ] Press screenshot pack (`public/press/screenshots.zip` or a collage at that logical path)
 - [ ] Press fact sheet PDF (`public/press/fact-sheet.pdf`)
 
