@@ -31,7 +31,7 @@ export const inventions: Invention[] = [
       "A flying oven with ideas. Hover, heat, and ruin someone's afternoon from above.",
     status: "prototype",
     componentIds: ["drone", "microwave", "battery"],
-    image: "/images/inventions/microwave-drone.svg",
+    image: "/images/inventions/microwave-drone",
   },
   {
     id: "rocket-cart",
@@ -42,7 +42,7 @@ export const inventions: Invention[] = [
       "A shopping cart that refused to stay in the parking lot. Fast, loud, and barely legal physics.",
     status: "prototype",
     componentIds: ["shopping-cart", "motor", "battery"],
-    image: "/images/inventions/rocket-cart.svg",
+    image: "/images/inventions/rocket-cart",
   },
   {
     id: "vacuum-cannon",
@@ -53,18 +53,7 @@ export const inventions: Invention[] = [
       "Turns suction into a problem for anything in front of the nozzle — including the operator, sometimes.",
     status: "prototype",
     componentIds: ["vacuum", "motor", "pipe"],
-    image: "/images/inventions/vacuum-cannon.svg",
-  },
-  {
-    id: "scout-drone",
-    name: "Scout Drone",
-    slug: "scout-drone",
-    category: "RECON",
-    description:
-      "A camera, a radio, and a circuit board taught to snoop. Sees further than a kid on a rooftop.",
-    status: "prototype",
-    componentIds: ["camera", "radio", "circuit-board"],
-    image: "/images/inventions/scout-drone.svg",
+    image: "/images/inventions/vacuum-cannon",
   },
   {
     id: "junk-cannon",

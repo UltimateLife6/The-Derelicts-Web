@@ -13,7 +13,9 @@ export function GameImage({
   fit,
   sizes,
   priority = false,
+  clear = false,
   className,
+  imageClassName,
 }: {
   src: string;
   alt: string;
@@ -22,7 +24,10 @@ export function GameImage({
   fit?: ImageFit;
   sizes?: string;
   priority?: boolean;
+  /** No surface fill — use for transparent assets floating on a parent chamber. */
+  clear?: boolean;
   className?: string;
+  imageClassName?: string;
 }) {
   const resolved = resolvePublicAsset(src);
   const resolvedFit = fit ?? inferFit(src);
@@ -35,7 +40,11 @@ export function GameImage({
 
   return (
     <div
-      className={cn("relative overflow-hidden bg-[#2c261e]", className)}
+      className={cn(
+        "relative overflow-hidden",
+        !clear && !accent && "bg-[#2c261e]",
+        className,
+      )}
       style={
         accent
           ? {
@@ -58,7 +67,7 @@ export function GameImage({
           sizes={sizes ?? defaultSizes(resolvedFit)}
           quality={75}
           priority={priority}
-          className={cn("z-10", fitClassName(resolvedFit))}
+          className={cn("z-10", fitClassName(resolvedFit), imageClassName)}
           onError={() => setUseSvg(true)}
         />
       ) : (
@@ -66,7 +75,7 @@ export function GameImage({
         <img
           src={svgSrc}
           alt={alt}
-          className={cn("relative z-10 h-full w-full", fitClassName(resolvedFit))}
+          className={cn("relative z-10 h-full w-full", fitClassName(resolvedFit), imageClassName)}
           onError={() => setFailed(true)}
         />
       )}

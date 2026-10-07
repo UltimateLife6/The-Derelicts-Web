@@ -412,6 +412,26 @@ input:focus-visible,
   animation: assemble 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes invent-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  58% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-invent-reveal {
+  animation: invent-reveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -423,7 +443,12 @@ input:focus-visible,
   .animate-glitch,
   .animate-shake,
   .animate-ticker,
-  .animate-assemble {
+  .animate-assemble,
+  .animate-invent-reveal,
+  .invent-bench.is-building,
+  .invent-bench.is-building .bench-slot,
+  .invent-bench.is-building::after,
+  .invent-result.is-flashing {
     animation: none !important;
   }
 }
@@ -509,9 +534,105 @@ input:focus-visible,
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
 }
 
-.is-building .bench-slot {
-  transform: translateY(10px) scale(0.86);
-  opacity: 0.35;
+@keyframes invent-jolt {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  18% {
+    transform: translate3d(calc(var(--pull-x, 0px) * 0.15), -3px, 0) scale(1.04)
+      rotate(-1.2deg);
+  }
+  42% {
+    transform: translate3d(calc(var(--pull-x, 0px) * 0.55), 2px, 0) scale(0.97)
+      rotate(0.8deg);
+  }
+  68% {
+    transform: translate3d(var(--pull-x, 0px), 10px, 0) scale(0.9) rotate(-0.4deg);
+    opacity: 0.72;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes invent-flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  28% {
+    opacity: 0.12;
+  }
+  46% {
+    opacity: 0.7;
+  }
+  62% {
+    opacity: 0.18;
+  }
+  78% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes invent-result-flash {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+  35% {
+    box-shadow: inset 0 0 0 3px #3dfff3, inset 0 0 28px rgba(245, 230, 66, 0.45);
+  }
+  70% {
+    box-shadow: inset 0 0 0 2px #ff2d9a, inset 0 0 18px rgba(61, 255, 243, 0.35);
+  }
+}
+
+.invent-bench.is-building .bench-slot {
+  animation: invent-jolt 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.invent-bench.is-building .invent-part:nth-child(1) .bench-slot {
+  --pull-x: 18px;
+}
+
+.invent-bench.is-building .invent-part:nth-child(2) .bench-slot {
+  --pull-x: 0px;
+  animation-delay: 0.04s;
+}
+
+.invent-bench.is-building .invent-part:nth-child(3) .bench-slot {
+  --pull-x: -18px;
+  animation-delay: 0.08s;
+}
+
+.invent-bench.is-building::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(61, 255, 243, 0.55), transparent 42%),
+    radial-gradient(circle at 36% 48%, rgba(245, 230, 66, 0.4), transparent 28%),
+    radial-gradient(circle at 64% 50%, rgba(255, 45, 154, 0.28), transparent 30%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: invent-flash 0.78s steps(2, end) both;
+}
+
+.invent-result.is-flashing {
+  animation: invent-result-flash 0.78s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .invent-bench.is-building {
+    animation: shake 0.45s linear;
+  }
 }
 
 .ability-wire {

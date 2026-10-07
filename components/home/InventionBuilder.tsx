@@ -9,6 +9,8 @@ import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 
+const BUILD_MS = 780;
+
 export function InventionBuilder() {
   const recipes = prototypeInventions;
   const [index, setIndex] = useState(0);
@@ -29,6 +31,7 @@ export function InventionBuilder() {
   }, []);
 
   function selectRecipe(next: number, moveFocus = false) {
+    if (timer.current) window.clearTimeout(timer.current);
     setIndex(next);
     setBuilt(false);
     setBuilding(false);
@@ -42,13 +45,15 @@ export function InventionBuilder() {
 
   function build() {
     if (building) return;
+    if (timer.current) window.clearTimeout(timer.current);
     setBuilt(false);
     setBuilding(true);
     track("invention_build", { slug: recipe.slug });
     timer.current = window.setTimeout(() => {
       setBuilding(false);
       setBuilt(true);
-    }, 520);
+      timer.current = null;
+    }, BUILD_MS);
   }
 
   function onRecipeKey(event: KeyboardEvent<HTMLElement>) {
@@ -109,20 +114,24 @@ export function InventionBuilder() {
 
           <div
             className={cn(
-              "relative border-4 border-black bg-[#6b4a2a] p-5 shadow-[8px_10px_0_#000] md:p-7",
-              building && "is-building motion-safe:animate-shake",
+              "invent-bench relative overflow-hidden border-4 border-black bg-[#6b4a2a] p-5 shadow-[8px_10px_0_#000] md:p-7",
+              building && "is-building",
             )}
           >
             <div className="absolute inset-x-6 top-0 h-3 -translate-y-1/2 bg-magenta" aria-hidden="true" />
             <p className="font-mark text-xl text-volt">slot the junk</p>
-            <div className="mt-5 flex items-end justify-center gap-2 overflow-x-auto pb-1 hide-scroll md:gap-4">
+            <div className="invent-parts mt-5 flex items-end justify-center gap-2 overflow-x-auto pb-1 hide-scroll md:gap-4">
               {components.map((component, componentIndex) => (
-                <div key={component!.id} className="flex items-end gap-2 md:gap-3">
+                <div
+                  key={component!.id}
+                  className="invent-part flex items-end gap-2 md:gap-3"
+                >
                   <div className="bench-slot w-24 text-center md:w-28">
                     <ComponentChip
                       label={component!.name}
                       image={component!.image}
-                      className="w-full flex-col py-3"
+                      prominent
+                      className="w-full flex-col gap-1.5 px-2 py-2.5"
                     />
                   </div>
                   {componentIndex < components.length - 1 ? (
@@ -146,6 +155,8 @@ export function InventionBuilder() {
               variant="arcade"
               className="min-h-12 w-full"
               onClick={build}
+              disabled={building}
+              aria-busy={building}
               aria-describedby="build-result"
             >
               BUILD
@@ -154,24 +165,36 @@ export function InventionBuilder() {
             <div
               id="build-result"
               aria-live="polite"
-              className="mt-5 min-h-48 bg-[#171310] p-4 outline outline-4 outline-black md:p-6"
+              className={cn(
+                "invent-result relative mt-5 overflow-hidden bg-[#171310] outline outline-4 outline-black",
+                built
+                  ? "px-3 pb-4 pt-3 md:px-5 md:pb-5 md:pt-4"
+                  : "flex min-h-40 items-center justify-center px-3 py-10 md:min-h-48",
+                building && "is-flashing",
+              )}
             >
               {built ? (
-                <div className="motion-safe:animate-assemble">
-                  <GameImage
-                    src={recipe.image}
-                    alt={`${recipe.name} invention art`}
-                    fit="silhouette"
-                    sizes="(max-width: 768px) 90vw, 420px"
-                    className="mx-auto aspect-[2/3] w-full max-w-md border-4 border-black bg-[#111]"
-                  />
-                  <p className="mt-4 text-center font-mark text-xl text-magenta">RESULT</p>
-                  <h3 className="display mt-1 text-center text-5xl text-volt md:text-7xl">
+                <div className="invent-result-payload motion-safe:animate-invent-reveal flex flex-col items-center">
+                  <div className="relative mx-auto flex h-[min(52vw,17.5rem)] w-full max-w-3xl items-center justify-center sm:h-72 md:h-[22rem] lg:h-[24rem]">
+                    <GameImage
+                      src={recipe.image}
+                      alt={`${recipe.name} invention art`}
+                      fit="silhouette"
+                      clear
+                      sizes="(max-width: 768px) 92vw, (max-width: 1200px) 640px, 720px"
+                      className="h-full w-full"
+                      imageClassName="!p-0 object-contain"
+                    />
+                  </div>
+                  <p className="mt-2 text-center font-mark text-lg leading-none text-magenta sm:text-xl md:mt-3">
+                    RESULT
+                  </p>
+                  <h3 className="display mt-1.5 max-w-full text-center text-[clamp(1.85rem,5.5vw,3.35rem)] text-volt">
                     {recipe.name}
                   </h3>
                 </div>
               ) : (
-                <p className="py-10 text-center font-mark text-2xl text-paper">
+                <p className="text-center font-mark text-2xl text-paper">
                   {building ? "Sparks. Tape. Go." : "Slam BUILD."}
                 </p>
               )}
@@ -179,7 +202,11 @@ export function InventionBuilder() {
           </div>
         </div>
 
-        <ButtonLink href="/inventions" variant="ghost" className="mt-10 border-ink text-ink hover:border-volt hover:text-volt">
+        <ButtonLink
+          href="/inventions"
+          variant="ghost"
+          className="mt-10 border-ink text-ink hover:border-volt hover:text-volt"
+        >
           EXPLORE INVENTIONS →
         </ButtonLink>
       </div>
