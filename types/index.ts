@@ -106,6 +106,7 @@ export type AnalyticsEvent =
   | "trailer_click"
   | "invention_build"
   | "invention_recipe_change"
+  | "scavenge_dismantle"
   | "character_select"
   | "punktown_location_select"
   | "join_crew_submit"

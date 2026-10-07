@@ -258,6 +258,20 @@ Same spec as Tesla Bat: 1:1, 1200×1200, contain. Homepage builder + `/invention
 | Boom Box | `/images/inventions/boom-box` |
 | Paint Bomb | `/images/inventions/paint-bomb` |
 
+## Scavenge demo (homepage “RIP IT APART.”)
+
+`components/home/ScavengeDemo.tsx`. Until rasters exist, `components/home/ScavengeArt.tsx` draws SVG stand-ins. Drop the files below and they replace the stand-ins with no code change.
+
+| Slot | Path | Spec |
+| --- | --- | --- |
+| Arcade cabinet | `/images/scavenge/arcade-cabinet` | **Transparent** WebP/PNG, portrait ~3:5 (e.g. 960×1600), three-quarter view, base flush with the bottom edge. Battered Punktown cabinet: rust, cracked screen, stickers, exposed wiring. The dismantle animation slices this image into four shards, so keep the whole cabinet inside the frame. |
+| Circuit Board | `/images/components/circuit-board` | Transparent, 1:1, 800×800, contain. Same style as the invent-bench parts. |
+| Wiring | `/images/components/wiring` | Same |
+| Speaker | `/images/components/speaker` | Same |
+| Scrap Metal | `/images/components/scrap-metal` | Same |
+
+Add more scavengeable objects in `data/scavenge.ts`. With more than one entry, the end-state button switches from **RESET** to **TRY ANOTHER**.
+
 ## News stills
 
 16:9, 1920×1080, `fit="wide"`. Alt text is the post title.

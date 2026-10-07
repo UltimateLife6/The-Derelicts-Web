@@ -445,6 +445,15 @@ input:focus-visible,
   .animate-ticker,
   .animate-assemble,
   .animate-invent-reveal,
+  .scav-shake,
+  .scav-shard,
+  .scav-impact,
+  .scav-krnk,
+  .scav-spark,
+  .scav-card,
+  .scav-card.is-collecting,
+  .scav-done,
+  .scav-bump,
   .invent-bench.is-building,
   .invent-bench.is-building .bench-slot,
   .invent-bench.is-building::after,
@@ -632,6 +641,189 @@ input:focus-visible,
 @media (prefers-reduced-motion: no-preference) {
   .invent-bench.is-building {
     animation: shake 0.45s linear;
+  }
+}
+
+.scav-floor {
+  background: repeating-linear-gradient(
+    -45deg,
+    #171310 0 14px,
+    #241018 14px 28px
+  );
+  border-top: 4px solid #000;
+}
+
+.scav-idle {
+  filter: drop-shadow(6px 8px 0 #000);
+}
+
+.scav-shake,
+.scav-shard,
+.scav-impact,
+.scav-krnk,
+.scav-spark {
+  will-change: transform, opacity;
+}
+
+.scav-shake {
+  filter: drop-shadow(6px 8px 0 #000);
+  animation: scav-shake 0.3s steps(6, end) both;
+}
+
+.scav-shard {
+  animation: scav-burst 0.56s cubic-bezier(0.2, 0.7, 0.3, 1) 0.28s both;
+}
+
+.scav-impact {
+  opacity: 0;
+  animation: scav-impact 0.42s cubic-bezier(0.2, 0.8, 0.3, 1) 0.26s both;
+}
+
+.scav-krnk {
+  opacity: 0;
+  text-shadow: 3px 3px 0 #000;
+  animation: scav-krnk 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) 0.28s both;
+}
+
+.scav-spark {
+  opacity: 0;
+  animation: scav-spark 0.5s cubic-bezier(0.15, 0.8, 0.3, 1) 0.3s both;
+}
+
+.scav-card {
+  animation: scav-pop 0.42s cubic-bezier(0.22, 1, 0.36, 1) var(--pop-delay, 0ms) both;
+}
+
+.scav-card.is-collecting {
+  animation: scav-collect 0.48s cubic-bezier(0.55, 0, 0.75, 0.3) both;
+}
+
+.scav-done {
+  transform: rotate(-2deg);
+  animation: scav-stamp 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scav-bump {
+  animation: scav-bump 0.32s ease-out;
+}
+
+@keyframes scav-shake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate3d(-7px, 2px, 0) rotate(-2deg);
+  }
+  40% {
+    transform: translate3d(8px, -3px, 0) rotate(2.5deg);
+  }
+  60% {
+    transform: translate3d(-6px, 1px, 0) rotate(-1.5deg);
+  }
+  80% {
+    transform: translate3d(5px, -1px, 0) rotate(1deg);
+  }
+}
+
+@keyframes scav-burst {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--rot)) scale(0.82);
+    opacity: 0;
+  }
+}
+
+@keyframes scav-impact {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.25) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scav-krnk {
+  0% {
+    transform: translateX(-50%) scale(0.4) rotate(-12deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(-50%) scale(1.15) rotate(-6deg);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1) rotate(-6deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scav-spark {
+  0% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--sx)), calc(-50% + var(--sy))) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scav-pop {
+  0% {
+    transform: translate(var(--pop-x), var(--pop-y)) scale(0.4) rotate(-14deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(0, 0) scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scav-collect {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(0, -10px) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--to-x, 0px), var(--to-y, 0px)) scale(0.25);
+    opacity: 0;
+  }
+}
+
+@keyframes scav-stamp {
+  0% {
+    transform: scale(1.6) rotate(-8deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+}
+
+@keyframes scav-bump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.18);
   }
 }
 
