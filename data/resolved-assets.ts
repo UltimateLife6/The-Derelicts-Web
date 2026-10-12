@@ -48,6 +48,7 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/inventions/tesla-bat": { src: "/images/inventions/tesla-bat.webp", kind: "raster" },
   "/images/inventions/trash-tornado": { src: "/images/inventions/trash-tornado.svg", kind: "svg" },
   "/images/inventions/vacuum-cannon": { src: "/images/inventions/vacuum-cannon.webp", kind: "raster" },
+  "/images/mystery/surveillance": { src: "/images/mystery/surveillance.webp", kind: "raster" },
   "/images/news/first-transmission": { src: "/images/news/first-transmission.svg", kind: "svg" },
   "/images/news/map-fragments": { src: "/images/news/map-fragments.svg", kind: "svg" },
   "/images/news/volt-board": { src: "/images/news/volt-board.svg", kind: "svg" },

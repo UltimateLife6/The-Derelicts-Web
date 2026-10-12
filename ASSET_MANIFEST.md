@@ -232,7 +232,7 @@ Abilities, copy, and paths live in `data/movement.ts`. Rendered by `components/h
 
 ### Great Discard case file (homepage “WHO STARTED THE GREAT DISCARD?”)
 
-Evidence copy and slots live in `data/mystery.ts`. Rendered by `components/home/MysterySection.tsx`. **No files exist yet.** The camera overlays (REC, timestamp, corner brackets, scanlines, noise) are drawn in code, so do not bake them into the art.
+Evidence copy and slots live in `data/mystery.ts`. Rendered by `components/home/MysterySection.tsx`. The surveillance still is live (1672×941 export of `images/art/Forsaken Carnival Processing Yard.png`); the symbol slot is still empty. The camera overlays (REC, timestamp, corner brackets, scanlines, noise) are drawn in code, so do not bake them into the art.
 
 | Slot | Path | Shown when | Fallback |
 | --- | --- | --- | --- |

@@ -327,7 +327,7 @@ function SurveillanceFeed({ slot }: { slot?: string }) {
     return (
       <Image
         src={art.src}
-        alt="Security camera still of abandoned amusement park infrastructure."
+        alt="Night security-camera view of a fenced carnival yard, where armed figures lead lines of children toward a transport truck beneath a dark Ferris wheel."
         fill
         sizes="(max-width: 1024px) 100vw, 760px"
         quality={80}
