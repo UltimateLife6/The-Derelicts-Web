@@ -892,6 +892,146 @@ input:focus-visible,
   }
 }
 
+.case-file {
+  --case-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(255, 45, 154, 0.09), transparent 48%),
+    radial-gradient(ellipse at 92% 100%, rgba(61, 255, 243, 0.06), transparent 45%),
+    #0b090a;
+}
+
+.case-grain {
+  background-image: var(--case-noise);
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+.case-layer {
+  transition: opacity 0.3s ease-out;
+}
+
+.case-feed {
+  filter: saturate(0.55) contrast(1.12) brightness(0.82);
+}
+
+.case-desk {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(240, 226, 196, 0.08), transparent 65%),
+    #0d0b0a;
+}
+
+.case-sheet {
+  background-image:
+    linear-gradient(rgba(23, 19, 16, 0.06), rgba(23, 19, 16, 0.14)),
+    var(--case-noise);
+  background-blend-mode: multiply;
+  background-color: var(--paper);
+  background-size: auto, 180px;
+}
+
+.case-redact {
+  clip-path: polygon(0 8%, 100% 0, 99% 92%, 1% 100%);
+}
+
+.case-static {
+  background-image: var(--case-noise);
+  opacity: 0.1;
+  mix-blend-mode: screen;
+}
+
+.case-vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.case-roll {
+  top: -25%;
+  height: 22%;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(198, 255, 61, 0.07) 45%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(198, 255, 61, 0.07) 55%,
+    transparent
+  );
+}
+
+.case-cut,
+.case-notes {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .case-monitor.is-live .case-static {
+    animation: case-static 0.5s steps(3) infinite;
+  }
+
+  .case-monitor.is-live .case-roll {
+    animation: case-roll 11s linear infinite;
+  }
+
+  .case-cut {
+    animation: case-cut 0.32s ease-out both;
+  }
+
+  .case-notes {
+    animation: move-copy-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes case-static {
+  0% {
+    background-position: 0 0;
+  }
+  33% {
+    background-position: -53px 31px;
+  }
+  66% {
+    background-position: 41px -67px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes case-roll {
+  0%,
+  86% {
+    top: -25%;
+    opacity: 0;
+  }
+  87% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 1;
+  }
+}
+
+@keyframes case-cut {
+  0% {
+    opacity: 1;
+    background:
+      repeating-linear-gradient(to bottom, rgba(198, 255, 61, 0.16) 0 2px, transparent 2px 7px),
+      rgba(5, 7, 6, 0.75);
+  }
+  100% {
+    opacity: 0;
+    background:
+      repeating-linear-gradient(to bottom, rgba(198, 255, 61, 0.16) 0 2px, transparent 2px 7px),
+      rgba(5, 7, 6, 0.75);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-layer,
+  .case-tab {
+    transition: none !important;
+  }
+}
+
 .ability-wire {
   background: repeating-linear-gradient(
     to bottom,

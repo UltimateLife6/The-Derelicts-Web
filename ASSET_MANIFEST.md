@@ -230,6 +230,20 @@ Abilities, copy, and paths live in `data/movement.ts`. Rendered by `components/h
 - **Crop notes:** Keep the character and the movement action (ledge, rail, zipline, obstacle) in the center 70% width and the upper 65% height. The bottom third sits under the ability title and description.
 - **Playback:** Only the selected ability plays, only while the preview is on screen, muted, inline, and looping. With `prefers-reduced-motion: reduce`, clips never play and the still shows instead.
 
+### Great Discard case file (homepage “WHO STARTED THE GREAT DISCARD?”)
+
+Evidence copy and slots live in `data/mystery.ts`. Rendered by `components/home/MysterySection.tsx`. **No files exist yet.** The camera overlays (REC, timestamp, corner brackets, scanlines, noise) are drawn in code, so do not bake them into the art.
+
+| Slot | Path | Shown when | Fallback |
+| --- | --- | --- | --- |
+| Surveillance still | `public/images/mystery/surveillance.webp` | Exhibit B (default view) | Drawn park silhouette with **SURVEILLANCE STILL PENDING** |
+| Unknown symbol | `public/images/mystery/unknown-symbol.webp` | Exhibit C | Black redaction block stamped **WITHHELD** |
+
+- **Surveillance still:** 16:9, 1920×1080 WebP, under ~350KB. A high, fixed security-camera angle over abandoned amusement-park infrastructure and industrial ruins at night: dark, low-contrast, no characters posed for the camera. The site applies a mild desaturation, so deliver it in full colour. Keep the top and bottom ~12% free of important detail because the HUD sits there.
+- **Unknown symbol:** square, 800×800, transparent WebP or PNG, dark ink on transparent. It is printed on a cream evidence sheet. **Only add this once the symbol is canon.** Until then it intentionally stays redacted.
+- **Exhibit A (transfer log)** is rendered from text in `data/mystery.ts` and needs no artwork.
+- **CTA:** “ACCESS THE FILE →” renders as a sealed, non-clickable state because there is no Great Discard story page yet. Set `caseFileHref` in `data/mystery.ts` when one ships.
+
 ---
 
 ## Remaining character portraits
