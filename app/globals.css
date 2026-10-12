@@ -644,6 +644,18 @@ input:focus-visible,
   }
 }
 
+.origin-strike::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 52%;
+  height: 0.16em;
+  background: var(--magenta);
+  transform: rotate(-3deg);
+  border-radius: 2px;
+}
+
 .move-layer {
   transition: opacity 0.28s ease-out;
 }

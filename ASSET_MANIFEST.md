@@ -202,6 +202,15 @@ Component ids: `battery`, `pipe`, `capacitor`, `drone`, `microwave`, `shopping-c
 - **Appears in:** `components/home/HeroMedia.tsx`
 - **Notes:** Always ship `hero.webp` as the poster/fallback before enabling the loop.
 
+### Origin story artwork (homepage “THEY CALLED THEM LOST.”)
+
+- **Filename / path:** `origin.webp` at `public/images/story/origin`
+- **Aspect ratio:** 16:9 (displayed with a cover crop centred slightly left)
+- **Recommended size:** 1920×1080, WebP, under ~400KB
+- **Purpose:** The crew as builders, not victims: kids assembling Punktown out of what the world threw away.
+- **Appears in:** `components/home/StoryIntro.tsx`
+- **Status:** Temporary. Currently a 1600×960 export of `images/Punktown-hero-key-art.png`, an alternate render of the homepage hero, so the two images on the page look similar. Replace with a dedicated origin-story illustration. With no file present, the section shows a branded **ORIGIN ART PENDING** panel.
+
 ### Movement showcase (homepage “MOVE LIKE YOU BUILT THE PLACE.”)
 
 Abilities, copy, and paths live in `data/movement.ts`. Rendered by `components/home/MovementSection.tsx`. Each slot uses the video if one exists, otherwise the still, otherwise a branded **FOOTAGE PENDING** panel that shows the missing filename. **No files exist yet.**

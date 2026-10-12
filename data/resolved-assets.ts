@@ -63,4 +63,5 @@ export const resolvedAssets: Record<string, ResolvedAsset> = {
   "/images/punktown/the-funhouse": { src: "/images/punktown/the-funhouse.svg", kind: "svg" },
   "/images/punktown/the-pit": { src: "/images/punktown/the-pit.svg", kind: "svg" },
   "/images/punktown/trash-mountain": { src: "/images/punktown/trash-mountain.svg", kind: "svg" },
+  "/images/story/origin": { src: "/images/story/origin.webp", kind: "raster" },
 };
