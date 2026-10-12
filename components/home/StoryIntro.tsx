@@ -47,11 +47,11 @@ export function StoryIntro() {
             {art?.kind === "raster" ? (
               <Image
                 src={art.src}
-                alt="The Derelicts crew in Punktown, the abandoned amusement park they rebuilt into a city."
+                alt="The Derelicts welding, hammering, and wiring scrap at sunset as they build Punktown inside the old amusement park."
                 fill
                 sizes="(max-width: 1024px) 100vw, 680px"
                 quality={82}
-                className="object-cover object-[42%_45%]"
+                className="object-cover object-center"
               />
             ) : (
               <div

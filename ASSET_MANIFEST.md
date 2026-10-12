@@ -205,11 +205,11 @@ Component ids: `battery`, `pipe`, `capacitor`, `drone`, `microwave`, `shopping-c
 ### Origin story artwork (homepage “THEY CALLED THEM LOST.”)
 
 - **Filename / path:** `origin.webp` at `public/images/story/origin`
-- **Aspect ratio:** 16:9 (displayed with a cover crop centred slightly left)
+- **Aspect ratio:** 16:9 (cover crop, centred)
 - **Recommended size:** 1920×1080, WebP, under ~400KB
 - **Purpose:** The crew as builders, not victims: kids assembling Punktown out of what the world threw away.
 - **Appears in:** `components/home/StoryIntro.tsx`
-- **Status:** Temporary. Currently a 1600×960 export of `images/Punktown-hero-key-art.png`, an alternate render of the homepage hero, so the two images on the page look similar. Replace with a dedicated origin-story illustration. With no file present, the section shows a branded **ORIGIN ART PENDING** panel.
+- **Status:** Live. 1672×941 export of `images/art/Building Punktown at Sunset.png`. With no file present, the section shows a branded **ORIGIN ART PENDING** panel.
 
 ### Movement showcase (homepage “MOVE LIKE YOU BUILT THE PLACE.”)
 
