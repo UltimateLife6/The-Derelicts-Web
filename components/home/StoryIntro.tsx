@@ -12,7 +12,7 @@ export function StoryIntro() {
       aria-labelledby="origin-heading"
       className="relative overflow-hidden bg-paper py-14 text-ink md:py-20"
     >
-      <div className="mx-auto grid max-w-7xl gap-x-12 gap-y-8 px-4 md:px-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center">
+      <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-8 px-4 md:px-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center xl:gap-x-12">
         <header className="lg:col-start-1 lg:row-start-1 lg:self-end">
           <p className="inline-flex items-center gap-2 bg-ink px-3 py-1 font-display text-sm tracking-[0.22em] text-volt shadow-[3px_3px_0_var(--magenta)]">
             THE ORIGIN STORY <span className="text-magenta">{"//"}</span> 001
@@ -34,7 +34,7 @@ export function StoryIntro() {
           </h2>
         </header>
 
-        <figure className="relative lg:col-start-2 lg:row-span-2 lg:row-start-1">
+        <figure className="relative lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-20 lg:self-start">
           <span
             className="absolute -left-3 -top-3 z-10 h-6 w-24 -rotate-6 bg-volt/90 shadow-[2px_2px_0_rgba(0,0,0,0.35)] sm:w-28"
             aria-hidden="true"
@@ -49,7 +49,7 @@ export function StoryIntro() {
                 src={art.src}
                 alt="The Derelicts welding, hammering, and wiring scrap at sunset as they build Punktown inside the old amusement park."
                 fill
-                sizes="(max-width: 1024px) 100vw, 680px"
+                sizes="(max-width: 1024px) 100vw, 740px"
                 quality={82}
                 className="object-cover object-center"
               />
@@ -72,8 +72,9 @@ export function StoryIntro() {
         </figure>
 
         <div className="lg:col-start-1 lg:row-start-2 lg:self-start">
-          <p className="max-w-md border-l-4 border-hazard pl-4 font-mark text-2xl leading-tight md:text-3xl">
-            They weren&apos;t lost. They were building.
+          <p className="max-w-lg border-l-4 border-hazard pl-4 font-mark text-xl leading-snug md:text-2xl">
+            Out of the wreckage, they built something of their own. A place for the forgotten, the unwanted,
+            and anyone who refused to give up.
           </p>
           <p className="display mt-6 text-[clamp(2rem,4.2vw,3.25rem)]">
             THEY BECAME{" "}
